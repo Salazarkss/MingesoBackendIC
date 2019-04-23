@@ -8,26 +8,30 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @RestController
+@RequestMapping(value = "/products")
+@CrossOrigin(value = "http://localhost:8090/*")
 public class ProductService {
 
     @Autowired
     private ProductRepository productRepository;
 
-    @GetMapping(value = "/productos/all")
-    public List<Producto> showProducts(){
+    @RequestMapping(method = RequestMethod.GET)
+    @ResponseBody
+    public List<Producto> TodosLosProductos(){
         System.out.println("productos all");
         return this.productRepository.findAll();
     }
 
-    @GetMapping(value = "/productos/categoria/{category}")
-    public List<Producto> productosCategoria(@RequestParam("categoria") String category){
+    @RequestMapping(method = RequestMethod.GET, value = "/categoria/{category}")
+    @ResponseBody
+    public List<Producto> productosCategoria(@PathVariable final String category){
         System.out.println("productos categoria");
         return this.productRepository.findAllByCategoria(category);
     }
 
-    @PostMapping(value = "/productos/nuevo")
+    @RequestMapping(method = RequestMethod.POST, value = "/nuevo")
+    @ResponseBody
     public Producto nuevoProducto(@RequestBody Producto product){
-
         System.out.println("productos nuevo");
         Producto nuevo = this.productRepository.save(product);
         System.out.println("Producto agregado con éxito");
@@ -35,21 +39,32 @@ public class ProductService {
     }
 
     //En vez de retornar void puede ser un http status
-    @DeleteMapping(value = "/producto/{id}/delete")
-    public void eliminarProducto(@RequestParam("id") Long id){
-
+    @RequestMapping(method = RequestMethod.DELETE, value = "/{codigo}/delete")
+    @ResponseBody
+    public void eliminarProducto(@PathVariable final String codigo){
         System.out.println("productos delete");
-        Producto productoRepo = this.productRepository.findProductoById(id);
+        Producto productoRepo = this.productRepository.findProductoByCodigo(codigo);
         this.productRepository.delete(productoRepo);
         System.out.println("Producto eliminado con éxito");
     }
 
     //Puede recibir el {id}, buscarlo en el repo y guardarlo, pero me parece que tambien se puede asi
-    @PutMapping(value = "/producto/editar")
+    @RequestMapping(method = RequestMethod.POST, value = "/productos/editar")
+    @ResponseBody
     public Producto editarProducto(@RequestBody Producto producto){
+        System.out.println("productos edit");
         Producto editado = this.productRepository.save(producto);
         System.out.println("Producto editado con éxito");
         return editado;
     }
+
+    /* No se pide
+    @RequestMapping(method = RequestMethod.GET, value = "/mostrar/{codigo}")
+    @ResponseBody
+    public Producto MostrarProducto(@PathVariable("codigo") String codigo){
+        System.out.println("producto id");
+        return this.productRepository.findProductoByCodigo(id);
+    }*/
+
 
 }

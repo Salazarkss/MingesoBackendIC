@@ -10,7 +10,8 @@ import java.util.List;
 @Component
 public interface ProductRepository extends PagingAndSortingRepository<Producto, Long> {
     List<Producto>findAll();
-    Producto findProductoById(Long id);
+    //Producto findProductoById(Long id);
+    Producto findProductoByCodigo(String codigo);
     List<Producto>findAllByCategoria(String categoria);
     void delete(Producto producto);
 }

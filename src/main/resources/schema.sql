@@ -28,7 +28,7 @@ SHOW WARNINGS;
 CREATE TABLE IF NOT EXISTS `dbic`.`producto` (
   `product_id` BIGINT(20) NOT NULL AUTO_INCREMENT,
   `categoria` VARCHAR(255) NULL DEFAULT NULL,
-  `codigo` INT(11) NULL DEFAULT NULL,
+  `codigo` VARCHAR(255) NULL DEFAULT NULL,
   `fecha_vencimiento` DATETIME NULL DEFAULT NULL,
   `precio` INT(11) NULL DEFAULT NULL,
   PRIMARY KEY (`product_id`))

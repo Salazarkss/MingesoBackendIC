@@ -13,7 +13,7 @@ public class Producto {
     private Long id;
 
     @Column(name = "codigo")
-    private int codigo;
+    private String codigo;
 
     @Column(name = "fecha_vencimiento")
     private Date fecha_vencimiento;
@@ -28,11 +28,11 @@ public class Producto {
         return id;
     }
 
-    public int getCodigo() {
+    public String getCodigo() {
         return codigo;
     }
 
-    public void setCodigo(int codigo) {
+    public void setCodigo(String codigo) {
         this.codigo = codigo;
     }
 
