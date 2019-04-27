@@ -3,7 +3,7 @@ node {
    stage('SCM Chekout') { // for display purposes
       // Get some code from a GitHub repository
       git 'https://github.com/asdfghjkln1/MingesoBackendIC.git'   
-      mvnHome = tool name: 'mvn_3_6_1', type: 'maven'
+      mvnHome = tool name: 'maven_3_6_1', type: 'maven'
    }
    stage('Build') {
       // Run the maven build
