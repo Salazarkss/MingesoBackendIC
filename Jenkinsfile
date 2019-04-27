@@ -3,6 +3,7 @@ node {
 	stages {
 		stage('SMC checkout') {
 		 git 'https://github.com/asdfghjkln1/MingesoBackendIC'
+		 mvnHome = tool name: 'maven_3_6_1', type: 'maven'
 		}
 		stage('Compile Stage') { 
 			steps {
@@ -12,13 +13,6 @@ node {
       					 } else {
          					bat(/"${mvnHome}\bin\mvn" -Dmaven.test.failure.ignore clean package/)
       					}
-				}
-			}
-		}
-		stage('Deployement Stage'){
-			steps {
-				withMaven(maven : 'maven_3_6_1') {
-					sh 'mvn deploy'
 				}
 			}
 		}
