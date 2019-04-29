@@ -5,7 +5,7 @@ pipeline {
         stage ('Compile Stage') {
             steps{
                 withMaven(maven : 'maven_3_6_0'){
-                    sh 'mvn clean package && gcloud app deploy'
+                    sh 'mvn clean install && gcloud app deploy'
                 }
             }
         }
