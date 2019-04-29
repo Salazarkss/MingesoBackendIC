@@ -32,7 +32,6 @@ CREATE TABLE IF NOT EXISTS `dbic`.`producto` (
   `fecha_vencimiento` DATETIME NULL DEFAULT NULL,
   `precio` INT(11) NULL DEFAULT NULL,
   PRIMARY KEY (`product_id`))
-ENGINE = MyISAM
 DEFAULT CHARACTER SET = latin1;
 
 SHOW WARNINGS;
