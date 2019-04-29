@@ -80,6 +80,9 @@
                <groupId>com.google.appengine</groupId>
                <artifactId>appengine-maven-plugin</artifactId>
                <version>1.9.73</version>
+               <configuration>
+                <appEngineDirectory>appengine/app.yaml</appEngineDirectory>
+               </configuration>
             </plugin>
         </plugins>
     </build>
