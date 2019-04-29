@@ -1,7 +1,10 @@
 # MingesoIC Developement Log 
-## Version Actual 1.2.3 22/04/19
+## Version Actual 1.3.0 22/04/19
 
-Cambios 1.3.0 22/04/19
+Cambios 1.3.0 28/04/19
+- Implementación de Jenkins en servidor
+
+Cambios 1.2.3 22/04/19
 - Listado productos
 - Script DB
 - Fix del CORS
@@ -26,9 +29,9 @@ Cambios 1.0.0:
 ## Cosas por hacer:
 
 - [x] ~~Backend REST~~
-- [x] Conexión DB y script
+- [x] ~~Conexión DB y script~~
 - [ ] Frontend
-- [ ] Subirlo al servidor
+- [ ] Subirlo al servidor: Jenkins listo
 - [ ] Configuración Jenkins
 - [ ] Implementación Sonarqube
 - [ ] Implementación JUnit
