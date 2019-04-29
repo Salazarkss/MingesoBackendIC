@@ -3,6 +3,7 @@
 
 Cambios 1.3.0 28/04/19
 - Implementación de Jenkins en servidor
+- Integración con la base de datos
 
 Cambios 1.2.3 22/04/19
 - Listado productos
