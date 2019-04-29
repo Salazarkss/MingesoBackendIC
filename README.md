@@ -1,5 +1,5 @@
 # MingesoIC Developement Log 
-## Version Actual 1.3.0 22/04/19
+## Version Actual 1.3.0 28/04/19
 
 Cambios 1.3.0 28/04/19
 - Implementación de Jenkins en servidor
