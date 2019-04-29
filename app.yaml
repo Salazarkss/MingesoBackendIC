@@ -13,3 +13,6 @@ env_variables:
   # Replace username and password if you aren't using the root user.
   CLOUDSQL_USER: root
   CLOUDSQL_PASSWORD: 'root'
+
+readiness_check:
+  app_start_timeout_sec: 600
