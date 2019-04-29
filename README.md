@@ -33,7 +33,7 @@ Cambios 1.0.0:
 - [x] ~~Conexión DB y script~~
 - [ ] Frontend
 - [ ] Subirlo al servidor: Jenkins listo
-- [ ] Configuración Jenkins
+- [ ] Configuración Jenkins: En proceso
 - [ ] Implementación Sonarqube
 - [ ] Implementación JUnit
 - [ ] Implementación Mantis
