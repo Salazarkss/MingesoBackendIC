@@ -1,7 +1,8 @@
 # MingesoIC Developement Log 
-## Version Actual 1.3.0 28/04/19
+## Version Actual 1.3.1 01/05/19
 
-test
+Cambios 1.3.1 01/05/19
+- Avance pruebas NG con selenium
 
 Cambios 1.3.0 28/04/19
 - Implementación de Jenkins en servidor
