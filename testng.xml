@@ -1,0 +1,7 @@
+<suite>
+    <test name="test_selenium">
+        <classes>
+            <class>com.mingeso.ic.TestNG.NavigationTest</class>
+        </classes>
+    </test>
+</suite>
