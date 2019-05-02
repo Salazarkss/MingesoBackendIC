@@ -9,10 +9,11 @@ public class NavigationTest {
 
     @Test
     public void NavigateTest(){
+        System.out.println("SELENIUM: INICIANDO PRUEBAS...");
         System.setProperty("webdriver.chrome.driver","lib/chromedriver_win32/chromedriver.exe");
         WebDriver driver = new ChromeDriver();
         driver.get("https://www.google.com");
         driver.findElement(By.name("q")).sendKeys("No soy un bot");
-        driver.findElement(By.name("btnK")).click();
+        System.out.println("SELENIUM: PRUEBAS PASADAS!");
     }
 }
