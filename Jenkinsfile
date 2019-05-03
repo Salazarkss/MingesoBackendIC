@@ -11,7 +11,9 @@ pipeline {
         }
         stage ('Tests') {
             steps{
-                sh 'java -jar org.testng.TestNG testng.xml'
+                withMaven(maven : 'maven_3_6_0'){
+                    sh 'mvn test -DsuiteXmlFile=testng.xml'
+                }
             }
         }
         stage ('Deploy') {

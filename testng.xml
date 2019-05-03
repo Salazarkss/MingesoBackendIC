@@ -1,7 +1,8 @@
-<suite>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="BasicTest">
     <test name="test_selenium">
         <classes>
-            <class>com.mingeso.ic.TestNG.NavigationTest</class>
+            <class name="com.mingeso.ic.TestNG.NavigationTest"></class>
         </classes>
     </test>
 </suite>
