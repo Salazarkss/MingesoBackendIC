@@ -19,6 +19,7 @@ pipeline {
         stage ('Deploy') {
             steps{
                 sh 'gcloud app deploy --stop-previous-version'
+                sh 'gcloud app versions list | grep -v SERVING | awk '{print $2}' | tail -n +1 | xargs -I {} gcloud app versions delete {}'
             }
         }
     }
