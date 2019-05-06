@@ -1,5 +1,21 @@
 # MingesoIC Developement Log 
-## Version Actual 1.3.1 01/05/19
+## Version Actual 1.4.3 06/05/19
+
+
+Cambios 1.4.3 06/05/19
+- Pruebas integración selenium y jenkins
+
+Cambios 1.4.2 05/05/19
+- Migración Mysql a Digital Ocean
+
+Cambios 1.4.1 05/05/19
+- Integración contínua frontend con éxito (debe asincronizarse)
+- Deploy de TestLink (se crea 1 prueba) y Mantis (falta administrar y prueba)
+- Pendiente la conexion TestLink-Mantis
+
+Version 1.4.0 04/05/19
+- Se hace deploy del frontend en Digital Ocean
+- Se crea script shell para IC (en pruebas)
 
 Cambios 1.3.1 01/05/19
 - Avance pruebas NG con selenium

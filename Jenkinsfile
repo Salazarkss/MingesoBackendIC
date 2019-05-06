@@ -9,6 +9,13 @@ pipeline {
                 }
             }
         }
+        stage ('Tests') {
+            steps{
+                withMaven(maven : 'maven_3_6_0'){
+                    sh 'mvn test -DsuiteXmlFile=testng.xml'
+                }
+            }
+        }
         stage ('Deploy') {
             steps{
                 sh 'gcloud app deploy --no-promote'
