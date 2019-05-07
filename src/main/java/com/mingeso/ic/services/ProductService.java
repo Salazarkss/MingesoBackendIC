@@ -7,7 +7,7 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @RestController
-@CrossOrigin(origins = "http://165.22.249.5:8080", maxAge = 3600)
+@CrossOrigin(origins = "http://165.22.249.5")
 public class ProductService {
 
     @Autowired
