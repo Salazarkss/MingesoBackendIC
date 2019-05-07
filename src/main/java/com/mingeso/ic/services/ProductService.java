@@ -18,6 +18,7 @@ public class ProductService {
     @ResponseBody
     public List<Producto> TodosLosProductos(){
         System.out.println("productos all");
+        //Martes 7 de Mayo
         return this.productRepository.findAll();
     }
     
