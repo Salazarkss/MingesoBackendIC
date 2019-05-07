@@ -16,9 +16,10 @@ pipeline {
                 }
             }
         }
-        stage ('Deploy') {
+        stage('Deploy'){
             steps{
-                sh 'gcloud app deploy --no-promote'
+                sh 'sshpass -e scp target/ic-1.0.0-SNAPSHOT.war root@159.65.3.243:/root'
+                sh 'java -jar ic-1.0.0-SNAPSHOT.war'
             }
         }
     }
