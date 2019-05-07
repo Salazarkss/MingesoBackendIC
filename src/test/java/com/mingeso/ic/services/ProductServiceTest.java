@@ -16,6 +16,7 @@ public class ProductServiceTest {
     public void testTodosLosProductos() {
 
         assertEquals(1, 1);
+        System.out.println("JUNIT: PRUEBAS COMPLETADAS!");
     }
 
     /*
