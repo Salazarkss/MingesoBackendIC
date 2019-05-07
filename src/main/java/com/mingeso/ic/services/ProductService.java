@@ -8,8 +8,7 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @RestController
-@RequestMapping(value = "/productos")
-@CrossOrigin(value = "http://165.22.249.5:8090/*")
+@RequestMapping(value = "/productoes")
 public class ProductService {
 
     @Autowired
@@ -17,11 +16,13 @@ public class ProductService {
 
     @RequestMapping(method = RequestMethod.GET)
     @ResponseBody
+    @CrossOrigin(origins = "http://165.22.249.5:8090")
     public List<Producto> TodosLosProductos(){
         System.out.println("productos all");
         return this.productRepository.findAll();
     }
 
+    
     @RequestMapping(method = RequestMethod.GET, value = "/categoria/{category}")
     @ResponseBody
     public List<Producto> productosCategoria(@PathVariable final String category){
