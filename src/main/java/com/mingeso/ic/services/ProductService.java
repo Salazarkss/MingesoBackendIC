@@ -7,13 +7,13 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @RestController
-@CrossOrigin(origins = "http://165.22.249.5")
 public class ProductService {
 
     @Autowired
     private ProductRepository productRepository;
     
     
+    @CrossOrigin(origins = "http://165.22.249.5:8080")
     @RequestMapping("/productoes")
     @ResponseBody
     public List<Producto> TodosLosProductos(){
