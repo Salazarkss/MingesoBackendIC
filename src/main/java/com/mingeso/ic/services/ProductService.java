@@ -15,7 +15,7 @@ public class ProductService {
     
     @RequestMapping(value = "/productoes", method = RequestMethod.GET)
     @ResponseBody
-    @CrossOrigin(origins = "http://165.22.249.5:8080")
+    @CrossOrigin(origins = "*", allowedHeaders = "*")
     public List<Producto> TodosLosProductos(){
         System.out.println("productos all");
         return this.productRepository.findAll();
@@ -31,6 +31,7 @@ public class ProductService {
 
     @RequestMapping(method = RequestMethod.POST, value = "/productos/nuevo")
     @ResponseBody
+    @CrossOrigin(origins = "*", allowedHeaders = "*")
     public Producto nuevoProducto(@RequestBody Producto product){
         System.out.println("productos nuevo");
         Producto nuevo = this.productRepository.save(product);
