@@ -4,6 +4,7 @@ import com.mingeso.ic.model.Producto;
 import com.mingeso.ic.repository.ProductRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
+import javax.servlet.http.HttpServletResponse;
 
 import java.util.List;
 
