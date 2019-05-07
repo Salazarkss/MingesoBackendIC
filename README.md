@@ -1,7 +1,6 @@
 # MingesoIC Developement Log 
 ## Version Actual 1.4.3 06/05/19
 
-
 Cambios 1.4.3 06/05/19
 - Pruebas integración selenium y jenkins
 
@@ -50,11 +49,11 @@ Cambios 1.0.0:
 
 - [x] ~~Backend REST~~
 - [x] ~~Conexión DB y script~~
-- [ ] Frontend
-- [ ] Subirlo al servidor: Jenkins listo
+- [ ] Frontend: Falta edit, delete
+- [x] Subirlo al servidor: Backend en migración
 - [ ] Configuración Jenkins: En proceso
 - [ ] Implementación Sonarqube
 - [ ] Implementación JUnit
-- [ ] Implementación Mantis
-- [ ] Implementación Testlink
-- [ ] Implementación Selenium
+- [ ] Implementación Mantis: Falta configuración
+- [x] Implementación Testlink 
+- [ ] Implementación Selenium: Arreglar bugs

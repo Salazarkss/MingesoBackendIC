@@ -10,7 +10,7 @@
     </parent>
     <groupId>com.mingeso</groupId>
     <artifactId>ic</artifactId>
-    <version>0.0.1-SNAPSHOT</version>
+    <version>ic-1.4.3</version>
     <name>MingesoIC</name>
     <description>Demo project for Spring Boot</description>
     <packaging>war</packaging>
@@ -79,19 +79,6 @@
             <optional>true</optional>
         </dependency>
     </dependencies>
-
-    <dependencyManagement>
-        <dependencies>
-            <dependency>
-                <groupId>org.springframework.cloud</groupId>
-                <artifactId>spring-cloud-dependencies</artifactId>
-                <version>${spring-cloud.version}</version>
-                <type>pom</type>
-                <scope>import</scope>
-            </dependency>
-        </dependencies>
-    </dependencyManagement>
-
     <build>
         <plugins>
             <plugin>
@@ -107,14 +94,6 @@
                         <suiteXmlFile>testng.xml</suiteXmlFile>
                     </suiteXmlFiles>
                 </configuration>
-            </plugin>
-            <plugin>
-               <groupId>com.google.appengine</groupId>
-               <artifactId>appengine-maven-plugin</artifactId>
-               <version>1.9.73</version>
-               <configuration>
-                <appEngineDirectory>appengine/app.yaml</appEngineDirectory>
-               </configuration>
             </plugin>
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>

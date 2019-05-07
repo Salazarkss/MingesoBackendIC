@@ -8,8 +8,8 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @RestController
-@RequestMapping(value = "/products")
-@CrossOrigin(value = "http://localhost:8090/*")
+@RequestMapping(value = "/productos")
+@CrossOrigin(value = "http://165.22.249.5:8090/*")
 public class ProductService {
 
     @Autowired

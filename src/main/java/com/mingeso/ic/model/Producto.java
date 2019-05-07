@@ -15,6 +15,9 @@ public class Producto {
     @Column(name = "codigo")
     private String codigo;
 
+     @Column(name = "nombre")
+    private String nombre;
+
     @Column(name = "fecha_vencimiento")
     private Date fecha_vencimiento;
 
@@ -34,6 +37,14 @@ public class Producto {
 
     public void setCodigo(String codigo) {
         this.codigo = codigo;
+    }
+
+    public String getNombre() {
+        return nombre;
+    }
+
+    public void setNombre(String nombre) {
+        this.nombre = nombre;
     }
 
     public Date getFecha_vencimiento() {
