@@ -8,29 +8,37 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @RestController
-@RequestMapping(value = "/productos")
 public class ProductService {
 
     @Autowired
     private ProductRepository productRepository;
 
-    @RequestMapping(method = RequestMethod.GET)
+    @RequestMapping(value= "/**", method=RequestMethod.OPTIONS)
+    public void corsHeaders(HttpServletResponse response) {
+        response.addHeader("Access-Control-Allow-Origin", "*");
+        response.addHeader("Access-Control-Allow-Methods", "GET, POST, PUT, DELETE, OPTIONS");
+        response.addHeader("Access-Control-Allow-Headers", "origin, content-type, accept, x-requested-with");
+        response.addHeader("Access-Control-Max-Age", "3600");
+    }
+    
+    
+    @RequestMapping(value = "/productoes", method = RequestMethod.GET)
     @ResponseBody
     @CrossOrigin(origins = "http://165.22.249.5:8080")
     public List<Producto> TodosLosProductos(){
         System.out.println("productos all");
         return this.productRepository.findAll();
     }
-
     
-    @RequestMapping(method = RequestMethod.GET, value = "/categoria/{category}")
+    
+    @RequestMapping(method = RequestMethod.GET, value = "productoes/categoria/{category}")
     @ResponseBody
     public List<Producto> productosCategoria(@PathVariable final String category){
         System.out.println("productos categoria");
         return this.productRepository.findAllByCategoria(category);
     }
 
-    @RequestMapping(method = RequestMethod.POST, value = "/nuevo")
+    @RequestMapping(method = RequestMethod.POST, value = "/productos/nuevo")
     @ResponseBody
     public Producto nuevoProducto(@RequestBody Producto product){
         System.out.println("productos nuevo");
@@ -40,7 +48,7 @@ public class ProductService {
     }
 
     //En vez de retornar void puede ser un http status
-    @RequestMapping(method = RequestMethod.DELETE, value = "/{codigo}/delete")
+    @RequestMapping(method = RequestMethod.DELETE, value = "/productos/{codigo}/delete")
     @ResponseBody
     public void eliminarProducto(@PathVariable final String codigo){
         System.out.println("productos delete");
