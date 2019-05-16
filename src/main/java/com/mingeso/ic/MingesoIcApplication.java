@@ -46,8 +46,8 @@ public class MingesoIcApplication {
             @Override
             public void addCorsMappings(CorsRegistry registry) {
                 registry.addMapping("/**").allowedOrigins("http://165.22.249.5:8080");
-        }
-    };
-}
+        	}
+    	};
+	}
 
 }
