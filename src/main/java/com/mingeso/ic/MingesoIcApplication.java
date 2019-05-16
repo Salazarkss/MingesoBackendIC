@@ -24,7 +24,7 @@ public class MingesoIcApplication extends SpringBootServletInitializer{
 
     @Override
     protected SpringApplicationBuilder configure(SpringApplicationBuilder builder) {
-    return builder.sources(Application.class);
+    return builder.sources(MingesoIcApplication.class);
     }
 
     public static void main(String[] args) {
