@@ -22,14 +22,13 @@ import java.util.Collections;
 @ComponentScan("com.mingeso.ic.repository")
 public class MingesoIcApplication extends SpringBootServletInitializer{
 
+    @Override
+    protected SpringApplicationBuilder configure(SpringApplicationBuilder builder) {
+    return builder.sources(Application.class);
+    }
 
     public static void main(String[] args) {
         SpringApplication.run(MingesoIcApplication.class, args);
-    }
-
-    @Override
-    protected SpringApplicationBuilder configure(SpringApplicationBuilder builder) {
-        return builder.sources(MingesoIcApplication.class);
     }
 
     // Fix the CORS errors
