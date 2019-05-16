@@ -28,8 +28,8 @@ public class MingesoIcApplication extends SpringBootServletInitializer{
     }
 
     @Override
-    protected SpringApplicationBuilder configure(SpringApplicationBuilder application) {
-        return application.sources(MingesoIcApplication.class);
+    protected SpringApplicationBuilder configure(SpringApplicationBuilder builder) {
+        return builder.sources(MingesoIcApplication.class);
     }
 
     // Fix the CORS errors
