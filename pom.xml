@@ -125,6 +125,7 @@
         </dependency>
     </dependencies>
     <build>
+        <finalName>mingesoback</finalName>
         <plugins>
             <plugin>
                 <groupId>org.springframework.boot</groupId>
