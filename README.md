@@ -1,5 +1,10 @@
 # MingesoIC Developement Log 
-## Version Actual 1.4.3 06/05/19
+## Version Actual 1.5.0 18/05/19
+
+Cambios 1.5.0 18/05/19
+- Cambio a iteración 1
+- Creacion modelos en back
+- Creacion repositorios en back
 
 Cambios 1.4.3 06/05/19
 - Pruebas integración selenium y jenkins

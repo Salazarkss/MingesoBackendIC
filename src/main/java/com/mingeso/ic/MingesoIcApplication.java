@@ -32,7 +32,7 @@ public class MingesoIcApplication extends SpringBootServletInitializer{
     }
 
     // Fix the CORS errors
-    /*@Bean
+    @Bean
     public FilterRegistrationBean simpleCorsFilter() {
         UrlBasedCorsConfigurationSource source = new UrlBasedCorsConfigurationSource();
         CorsConfiguration config = new CorsConfiguration();
@@ -45,14 +45,14 @@ public class MingesoIcApplication extends SpringBootServletInitializer{
         FilterRegistrationBean bean = new FilterRegistrationBean<>(new CorsFilter(source));
         bean.setOrder(Ordered.HIGHEST_PRECEDENCE);
         return bean;
-    }*/
+    }
     
     @Bean
     public WebMvcConfigurer corsConfigurer() {
         return new WebMvcConfigurerAdapter() {
             @Override
             public void addCorsMappings(CorsRegistry registry) {
-                registry.addMapping("/**").allowedOrigins("http://165.22.249.5:8080");
+                registry.addMapping("/**").allowedOrigins("http://165.22.249.5:8090");
         	}
     	};
 	}

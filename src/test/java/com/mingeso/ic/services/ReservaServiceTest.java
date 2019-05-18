@@ -1,19 +1,14 @@
 package com.mingeso.ic.services;
 
 import org.junit.Test;
-import com.mingeso.ic.repository.ProductRepository;
-import org.springframework.beans.factory.annotation.Autowired;
 
 import static junit.framework.TestCase.assertEquals;
 
 
-public class ProductServiceTest {
-    ProductService servicio = new ProductService();
-    @Autowired
-    ProductRepository repository;
+public class ReservaServiceTest {
 
     @Test
-    public void testTodosLosProductos() {
+    public void testUnoEsIgualAUno() {
 
         assertEquals(1, 1);
         System.out.println("JUNIT: PRUEBAS COMPLETADAS!");
