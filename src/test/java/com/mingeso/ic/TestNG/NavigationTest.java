@@ -1,4 +1,4 @@
-/*package com.mingeso.ic.TestNG;
+package com.mingeso.ic.TestNG;
 
 import org.testng.annotations.Test;
 import org.openqa.selenium.By;
@@ -27,4 +27,4 @@ public class NavigationTest {
 
         driver.quit();
     }
-}*/
+}
