@@ -35,7 +35,23 @@ CREATE TABLE IF NOT EXISTS `dbic`.`producto` (
   PRIMARY KEY (`product_id`))
 DEFAULT CHARACTER SET = latin1;
 
+-- -----------------------------------------------------
+-- Table `dbic`.`reserva`
+-- -----------------------------------------------------
+DROP TABLE IF EXISTS `dbic`.`reserva` ;
 SHOW WARNINGS;
+
+CREATE TABLE IF NOT EXISTS `dbic`.`reserva` (
+  `product_id` BIGINT(20) NOT NULL AUTO_INCREMENT,
+  `categoria` VARCHAR(255) NULL DEFAULT NULL,
+  `codigo` VARCHAR(255) NULL DEFAULT NULL,
+  `nombre` VARCHAR(255) NULL DEFAULT NULL,
+  `fecha_vencimiento` DATETIME NULL DEFAULT NULL,
+  `precio` INT(11) NULL DEFAULT NULL,
+  PRIMARY KEY (`product_id`))
+DEFAULT CHARACTER SET = latin1;
+
+SHOW WARNINGS;cl
 
 SET SQL_MODE=@OLD_SQL_MODE;
 SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS;

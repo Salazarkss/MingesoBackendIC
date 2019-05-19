@@ -1,5 +1,6 @@
-package com.mingeso.ic;
+/*package com.mingeso.ic;
 
+import com.mingeso.ic.services.ProductServiceTest;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 //import org.junit.runners.Suite;
@@ -9,6 +10,11 @@ import org.springframework.context.annotation.ComponentScan;
 //import org.springframework.test.context.ActiveProfiles;
 import org.springframework.test.context.junit4.SpringRunner;
 
+
+@Suite.SuiteClasses({
+       ProductServiceTest.class
+})
+@ActiveProfiles("test")
 @RunWith(SpringRunner.class)
 @SpringBootTest
 @SpringBootApplication(scanBasePackages="com.mingeso.ic")
@@ -19,4 +25,4 @@ public class MingesoIcApplicationTests {
     public void contextLoads() {
     }
 
-}
+}*/
