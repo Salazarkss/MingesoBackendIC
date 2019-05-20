@@ -1,8 +1,11 @@
 package com.mingeso.ic;
 
+import com.mingeso.ic.DAO.*;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.boot.web.servlet.FilterRegistrationBean;
+import org.springframework.context.ApplicationContext;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.core.Ordered;
@@ -13,19 +16,17 @@ import org.springframework.web.filter.CorsFilter;
 import org.springframework.web.servlet.config.annotation.CorsRegistry;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurerAdapter;
+
+import com.mingeso.ic.DAO.Habitacion;
+
 import org.springframework.boot.web.servlet.support.SpringBootServletInitializer;
 import org.springframework.boot.builder.SpringApplicationBuilder;
 
 import java.util.Collections;
 
 @SpringBootApplication(scanBasePackages="com.mingeso.ic")
-@ComponentScan("com.mingeso.ic.repository")
+@ComponentScan("com.mingeso.ic.DAO")
 public class MingesoIcApplication extends SpringBootServletInitializer{
-
-    @Override
-    protected SpringApplicationBuilder configure(SpringApplicationBuilder builder) {
-    return builder.sources(MingesoIcApplication.class);
-    }
 
     public static void main(String[] args) {
         SpringApplication.run(MingesoIcApplication.class, args);

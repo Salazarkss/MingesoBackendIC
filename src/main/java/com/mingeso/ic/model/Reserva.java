@@ -1,6 +1,8 @@
 package com.mingeso.ic.model;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.mingeso.ic.DAO.Habitacion;
+
 import org.hibernate.annotations.OnDelete;
 
 import javax.annotation.Nullable;
