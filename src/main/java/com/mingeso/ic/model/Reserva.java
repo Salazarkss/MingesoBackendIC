@@ -2,6 +2,7 @@ package com.mingeso.ic.model;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.mingeso.ic.DAO.Habitacion;
+import com.mingeso.ic.DAO.Tipo;
 
 import org.hibernate.annotations.OnDelete;
 

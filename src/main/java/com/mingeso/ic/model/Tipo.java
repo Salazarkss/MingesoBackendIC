@@ -1,4 +1,4 @@
-package com.mingeso.ic.model;
+package com.mingeso.ic.DAO;
 
 import javax.persistence.*;
 
@@ -16,6 +16,14 @@ public class Tipo {
 
     @Column(name = "valor")
     private String valor;
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
 
     public String getTipo() {
         return tipo;
