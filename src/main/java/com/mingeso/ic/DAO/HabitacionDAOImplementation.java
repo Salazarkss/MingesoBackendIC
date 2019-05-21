@@ -63,4 +63,10 @@ public class HabitacionDAOImplementation extends JdbcDaoSupport implements Habit
 		return habitaciones;
 	}
 
+	@Override
+	public void deleteHabitacion(int id) {
+		String query = "DELETE FROM habitacion where habitacion_id = ?";
+		getJdbcTemplate().update(query, new Object[]{id});
+	}
+
 }

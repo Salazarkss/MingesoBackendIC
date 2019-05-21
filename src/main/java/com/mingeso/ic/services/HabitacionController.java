@@ -17,7 +17,13 @@ public class HabitacionController{
 
 	@GetMapping("/habitaciones")
 	public List<Habitacion> getHabitacionesAll(){
-		return habitacionDAO.getAll();
+		try{
+			return habitacionDAO.getAll();
+		}
+		catch(Exception e){
+			System.out.println(e);
+			return null;
+		}
 	}
 
 	@GetMapping("/habitacion/{id}")
@@ -26,21 +32,35 @@ public class HabitacionController{
 			return habitacionDAO.getHabitacionById(id);
 		}
 		catch(Exception e){
+			System.out.println(e);
 			return null;
 		}
 	}
 
 	@PostMapping("/habitacion/{number}/{tipo}")
 	public void insertHabitacion(@PathVariable String number, @PathVariable String tipo){
-		System.out.println(number);
-		System.out.println(tipo);
-		Habitacion hab = new Habitacion();
-		List<Habitacion> habitaciones = habitacionDAO.getAll();
-		Habitacion lastHabitacion = habitaciones.get(habitaciones.size() - 1);
-		hab.setId(lastHabitacion.getId() + 1);
-		hab.setNumber(number);
-		hab.setTipo(tipo);
-		habitacionDAO.insertHabitacion(hab);
+		try{
+			Habitacion hab = new Habitacion();
+			List<Habitacion> habitaciones = habitacionDAO.getAll();
+			Habitacion lastHabitacion = habitaciones.get(habitaciones.size() - 1);
+			hab.setId(lastHabitacion.getId() + 1);
+			hab.setNumber(number);
+			hab.setTipo(tipo);
+			habitacionDAO.insertHabitacion(hab);
+		}
+		catch(Exception e){
+			System.out.println(e);
+		}
+	}
+
+	@PostMapping("/habitacion/{id}")
+	public void deleteHabitacion(@PathVariable int id){
+		try{
+			habitacionDAO.deleteHabitacion(id);
+		}
+		catch(Exception e){
+			System.out.println(e);
+		}
 	}
 
 }
