@@ -11,7 +11,7 @@
 /*!40103 SET @OLD_TIME_ZONE=@@TIME_ZONE */;
 /*!40103 SET TIME_ZONE='+00:00' */;
 /*!40014 SET @OLD_UNIQUE_CHECKS=@@UNIQUE_CHECKS, UNIQUE_CHECKS=0 */;
-/*!40014 SET @OLD_FOREIGN_KEY_CHECKS=@@FOREIGN_KEY_CHECKS, FOREIGN_KEY_CHECKS=0 */;
+SET FOREIGN_KEY_CHECKS=0;
 /*!40101 SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='NO_AUTO_VALUE_ON_ZERO' */;
 /*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
 
@@ -23,11 +23,13 @@ DROP TABLE IF EXISTS `habitacion`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
  SET character_set_client = utf8mb4 ;
 CREATE TABLE `habitacion` (
-  `habitacion_id` int(20) NOT NULL AUTO_INCREMENT,
+  `habitacion_id` int(11) NOT NULL AUTO_INCREMENT,
   `number` varchar(255) DEFAULT NULL,
-  `tipo` varchar(255) DEFAULT NULL,
-  PRIMARY KEY (`habitacion_id`)
-) ENGINE=MyISAM DEFAULT CHARSET=latin1;
+  `tipo_tipo_id` int(11) DEFAULT NULL,
+  PRIMARY KEY (`habitacion_id`),
+  KEY `tipo_ibfk_1` (`tipo_tipo_id`),
+  CONSTRAINT `tipo_ibfk_1` FOREIGN KEY (`tipo_tipo_id`) REFERENCES `tipo` (`tipo_id`) ON DELETE CASCADE ON UPDATE CASCADE
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -77,18 +79,20 @@ DROP TABLE IF EXISTS `reserva`;
 CREATE TABLE `reserva` (
   `reserva_id` bigint(20) NOT NULL AUTO_INCREMENT,
   `codigo` varchar(255) DEFAULT NULL,
-  `fecha_reserva` datetime DEFAULT NULL,
-  `fin` datetime DEFAULT NULL,
+  `fecha_reserva` datetime(6) DEFAULT NULL,
+  `fin` datetime(6) DEFAULT NULL,
   `valor_final` int(11) DEFAULT NULL,
-  `inicio` datetime DEFAULT NULL,
+  `inicio` datetime(6) DEFAULT NULL,
   `nombre` varchar(255) DEFAULT NULL,
   `valor` int(11) DEFAULT NULL,
-  `habitacion_id` bigint(20) NOT NULL,
+  `habitacion_id` int(11) NOT NULL,
   `tipo_id` int(11) NOT NULL,
   PRIMARY KEY (`reserva_id`),
   KEY `FKtr5bg864m3dseko7gif2bl239` (`habitacion_id`),
-  KEY `FKrx6coxj6o5rjjrpv9ruslixph` (`tipo_id`)
-) ENGINE=MyISAM DEFAULT CHARSET=latin1;
+  KEY `FKrx6coxj6o5rjjrpv9ruslixph` (`tipo_id`),
+  CONSTRAINT `FKrx6coxj6o5rjjrpv9ruslixph` FOREIGN KEY (`tipo_id`) REFERENCES `tipo` (`tipo_id`),
+  CONSTRAINT `FKtr5bg864m3dseko7gif2bl239` FOREIGN KEY (`habitacion_id`) REFERENCES `habitacion` (`habitacion_id`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -112,7 +116,7 @@ CREATE TABLE `tipo` (
   `tipo` varchar(255) DEFAULT NULL,
   `valor` varchar(255) DEFAULT NULL,
   PRIMARY KEY (`tipo_id`)
-) ENGINE=MyISAM DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -137,7 +141,7 @@ CREATE TABLE `usuario` (
   `rol` varchar(255) DEFAULT NULL,
   `usuario` varchar(255) DEFAULT NULL,
   PRIMARY KEY (`usuario_id`)
-) ENGINE=MyISAM DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -158,4 +162,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2019-05-19 10:35:05
+-- Dump completed on 2019-05-22 21:17:24

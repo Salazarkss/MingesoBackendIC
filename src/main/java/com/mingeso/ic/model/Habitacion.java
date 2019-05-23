@@ -1,6 +1,12 @@
 package com.mingeso.ic.DAO;
 
 import javax.persistence.*;
+
+import org.hibernate.annotations.OnDelete;
+import org.hibernate.annotations.OnDeleteAction;
+
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import java.util.Date;
 
 @Entity
@@ -15,8 +21,9 @@ public class Habitacion {
     @Column(name = "number")
     private String number;
 
-    @Column(name = "tipo")
-    private String tipo;
+    @ManyToOne
+    @JoinColumn
+    private Tipo tipo;
     
     public int getId() {
     	return id;
@@ -34,17 +41,17 @@ public class Habitacion {
 		this.number = number;
 	}
 
-	public String getTipo() {
+	public Tipo getTipo() {
 		return tipo;
 	}
 
-	public void setTipo(String tipo) {
+	public void setTipo(Tipo tipo) {
 		this.tipo = tipo;
 	}
 
 	@Override
 	public String toString() {
-		return "Habitacion [id=" + id + ", number=" + number + ", tipo=" + tipo + "]";
+		return "Habitacion [id=" + id + ", number=" + number + ", tipo=" + tipo.getId() + "]";
 	}
 	
 	

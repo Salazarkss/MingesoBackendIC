@@ -1,8 +1,8 @@
-INSERT INTO `dbic`.`habitacion` (`number`,`tipo` )
+INSERT INTO `dbic`.`habitacion` (`number`, `tipo_tipo_id`)
 	VALUES
-	('250', 'Simple'),
-	('251', 'Doble'),
-	('252', 'Matrimonial');
+	('250', 1),
+	('251', 2),
+	('252', 3);
 
 INSERT INTO `dbic`.`tipo` (`tipo`,`valor` )
 	VALUES

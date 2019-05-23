@@ -20,6 +20,9 @@ public class HabitacionDAOImplementation extends JdbcDaoSupport implements Habit
 	@Autowired
 	DataSource dataSource;
 	
+	@Autowired
+	TipoDAO tipoDAO;
+
 	@PostConstruct
 	private void initialize() {
 		setDataSource(dataSource);
@@ -27,8 +30,8 @@ public class HabitacionDAOImplementation extends JdbcDaoSupport implements Habit
 
 	@Override
 	public void insertHabitacion(Habitacion hab) {
-		String query = "INSERT INTO habitacion (habitacion_id, number, tipo) VALUES (?, ?, ?)";
-		getJdbcTemplate().update(query, new Object[]{hab.getId(), hab.getNumber(), hab.getTipo()});
+		String query = "INSERT INTO habitacion (habitacion_id, number, tipo_tipo_id) VALUES (?, ?, ?)";
+		getJdbcTemplate().update(query, new Object[]{hab.getId(), hab.getNumber(), hab.getTipo().getId()});
 		
 	}
 
@@ -41,7 +44,7 @@ public class HabitacionDAOImplementation extends JdbcDaoSupport implements Habit
 				Habitacion hab = new Habitacion();
 				hab.setId(resultSet.getInt("habitacion_id"));
 				hab.setNumber(resultSet.getString("number"));
-				hab.setTipo(resultSet.getString("tipo"));
+				hab.setTipo(tipoDAO.getTipoById(resultSet.getInt("tipo_tipo_id")));
 				return hab;
 			}
 		});
@@ -57,7 +60,7 @@ public class HabitacionDAOImplementation extends JdbcDaoSupport implements Habit
 			Habitacion hab = new Habitacion();
 			hab.setId((int)row.get("habitacion_id"));
 			hab.setNumber((String)row.get("number"));
-			hab.setTipo((String)row.get("tipo"));
+			hab.setTipo(tipoDAO.getTipoById((int)row.get("tipo_tipo_id")));
 			habitaciones.add(hab);
 		}
 		return habitaciones;

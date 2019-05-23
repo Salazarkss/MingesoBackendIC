@@ -15,6 +15,9 @@ public class HabitacionController{
 	@Autowired
 	HabitacionDAO habitacionDAO;
 
+	@Autowired
+	TipoDAO tipoDAO;
+
 	@GetMapping("/habitaciones")
 	public List<Habitacion> getHabitacionesAll(){
 		try{
@@ -38,14 +41,14 @@ public class HabitacionController{
 	}
 
 	@PostMapping("/habitacion/{number}/{tipo}")
-	public void insertHabitacion(@PathVariable String number, @PathVariable String tipo){
+	public void insertHabitacion(@PathVariable String number, @PathVariable int tipo){
 		try{
 			Habitacion hab = new Habitacion();
 			List<Habitacion> habitaciones = habitacionDAO.getAll();
 			Habitacion lastHabitacion = habitaciones.get(habitaciones.size() - 1);
 			hab.setId(lastHabitacion.getId() + 1);
 			hab.setNumber(number);
-			hab.setTipo(tipo);
+			hab.setTipo(tipoDAO.getTipoById(tipo));
 			habitacionDAO.insertHabitacion(hab);
 		}
 		catch(Exception e){
