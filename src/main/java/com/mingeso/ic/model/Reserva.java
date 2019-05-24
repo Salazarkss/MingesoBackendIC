@@ -1,5 +1,6 @@
-package com.mingeso.ic.model;
+package com.mingeso.ic.DAO;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.mingeso.ic.DAO.Habitacion;
 import com.mingeso.ic.DAO.Tipo;
@@ -17,7 +18,7 @@ public class Reserva {
     @Id
     @Column(name = "reserva_id")
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
+    private int id;
 
     @Column(name = "codigo")
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -28,31 +29,35 @@ public class Reserva {
 
     @ManyToOne(fetch = FetchType.LAZY, optional = false)
     @JoinColumn(name = "habitacion_id", nullable = false)
-    @JsonIgnore //En el front, se debería evitar eliminar habitaciones si existen reservas asociadas. Se puede agregar @OnDelete como alternativa
     private Habitacion habitacion;
-
-    @ManyToOne(fetch = FetchType.LAZY, optional = false)
-    @JoinColumn(name = "tipo_id", nullable = false)
-    @JsonIgnore
-    private Tipo tipo;
 
     //En caso de haber descuento, escribir en este campo corresponde al monto final luego de cambio de precio, otro caso NULL
     @Column(name = "valor_final")
-    @JsonIgnore
     @Nullable
     private int final_descuento;
 
     @Column(name = "fecha_reserva")
+    @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "yyyy-MM-dd HH:mm:ss.SSSSSS")
     private Date fecha_reserva;
 
     @Column(name = "inicio")
+    @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "yyyy-MM-dd HH:mm:ss.SSSSSS")
     private Date inicio;
 
     @Column(name = "fin")
+    @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "yyyy-MM-dd HH:mm:ss.SSSSSS")
     private Date fin;
 
     @Column(name = "valor")
     private int valor;
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id){
+        this.id = id;
+    }
 
     public String getCodigo() {
         return codigo;
@@ -68,22 +73,6 @@ public class Reserva {
 
     public void setNombre(String nombre) {
         this.nombre = nombre;
-    }
-
-    public Tipo getTipo_reserva() {
-        return tipo;
-    }
-
-    public void setTipo_reserva(Tipo tipo_reserva) {
-        this.tipo = tipo_reserva;
-    }
-
-    public Tipo getTipo() {
-        return tipo;
-    }
-
-    public void setTipo(Tipo tipo) {
-        this.tipo = tipo;
     }
 
     public int getFinal_descuento() {

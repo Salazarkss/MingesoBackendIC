@@ -77,7 +77,7 @@ DROP TABLE IF EXISTS `reserva`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
  SET character_set_client = utf8mb4 ;
 CREATE TABLE `reserva` (
-  `reserva_id` bigint(20) NOT NULL AUTO_INCREMENT,
+  `reserva_id` int(11) NOT NULL AUTO_INCREMENT,
   `codigo` varchar(255) DEFAULT NULL,
   `fecha_reserva` datetime(6) DEFAULT NULL,
   `fin` datetime(6) DEFAULT NULL,
@@ -86,11 +86,8 @@ CREATE TABLE `reserva` (
   `nombre` varchar(255) DEFAULT NULL,
   `valor` int(11) DEFAULT NULL,
   `habitacion_id` int(11) NOT NULL,
-  `tipo_id` int(11) NOT NULL,
   PRIMARY KEY (`reserva_id`),
   KEY `FKtr5bg864m3dseko7gif2bl239` (`habitacion_id`),
-  KEY `FKrx6coxj6o5rjjrpv9ruslixph` (`tipo_id`),
-  CONSTRAINT `FKrx6coxj6o5rjjrpv9ruslixph` FOREIGN KEY (`tipo_id`) REFERENCES `tipo` (`tipo_id`),
   CONSTRAINT `FKtr5bg864m3dseko7gif2bl239` FOREIGN KEY (`habitacion_id`) REFERENCES `habitacion` (`habitacion_id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
