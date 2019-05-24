@@ -15,6 +15,8 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.google.gson.JsonObject;
+
 import bsh.ParseException;
 
 @RestController
@@ -43,6 +45,29 @@ public class ReservaController{
 			System.out.println(e);
 			return null;
 		}
+	}
+
+	@GetMapping("/reservas/codigo/{codigo}")
+	public List<Reserva> getReservasByCode(@PathVariable String codigo) {
+		try{
+			return reservaDAO.getReservasByCode(codigo);
+		}
+		catch(Exception e){
+			System.out.println(e);
+			return null;
+		}
+	}
+
+	@GetMapping("/reservas/nombre/{nombre}")
+	public List<Reserva> getReservasByName(@PathVariable String nombre) {
+		System.out.println(nombre);
+		try{
+			return reservaDAO.getReservasByName(nombre);
+		}
+		catch(Exception e){
+			System.out.println(e);
+			return null;
+		}	
 	}
 
 	@PostMapping("/reserva/insert")

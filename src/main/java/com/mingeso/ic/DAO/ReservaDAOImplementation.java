@@ -81,6 +81,50 @@ public class ReservaDAOImplementation extends JdbcDaoSupport implements ReservaD
 	}
 
 	@Override
+	public List<Reserva> getReservasByCode(String codigo) {
+		String query = "SELECT * FROM reserva WHERE codigo = ?";
+		List<Map<String, Object>> reservaRow = getJdbcTemplate().queryForList(query, codigo);
+
+		List<Reserva> reservas = new ArrayList<Reserva>();
+		for(Map<String, Object> row:reservaRow) {
+			Reserva reserva = new Reserva();
+			reserva.setId((int)row.get("reserva_id"));
+			reserva.setCodigo((String)row.get("codigo"));
+			reserva.setFecha_reserva((Timestamp)row.get("fecha_reserva"));
+			reserva.setFin((Timestamp)row.get("fin"));
+			reserva.setFinal_descuento((int)row.get("valor_final"));
+			reserva.setInicio((Timestamp)row.get("inicio"));
+			reserva.setNombre((String)row.get("nombre"));
+			reserva.setValor((int)row.get("valor"));
+			reserva.setHabitacion(habitacionDAO.getHabitacionById((int)row.get("habitacion_id")));
+			reservas.add(reserva);
+		}
+		return reservas;
+	}
+
+	@Override
+	public List<Reserva> getReservasByName(String nombre) {
+		String query = "SELECT * FROM reserva WHERE nombre = ?";
+		List<Map<String, Object>> reservaRow = getJdbcTemplate().queryForList(query, nombre);
+
+		List<Reserva> reservas = new ArrayList<Reserva>();
+		for(Map<String, Object> row:reservaRow) {
+			Reserva reserva = new Reserva();
+			reserva.setId((int)row.get("reserva_id"));
+			reserva.setCodigo((String)row.get("codigo"));
+			reserva.setFecha_reserva((Timestamp)row.get("fecha_reserva"));
+			reserva.setFin((Timestamp)row.get("fin"));
+			reserva.setFinal_descuento((int)row.get("valor_final"));
+			reserva.setInicio((Timestamp)row.get("inicio"));
+			reserva.setNombre((String)row.get("nombre"));
+			reserva.setValor((int)row.get("valor"));
+			reserva.setHabitacion(habitacionDAO.getHabitacionById((int)row.get("habitacion_id")));
+			reservas.add(reserva);
+		}
+		return reservas;
+	}
+
+	@Override
 	public void deleteReserva(int id) {
 		String query = "DELETE FROM reserva where reserva_id = ?";
 		getJdbcTemplate().update(query, new Object[]{id});
