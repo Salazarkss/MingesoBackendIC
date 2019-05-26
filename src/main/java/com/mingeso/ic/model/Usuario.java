@@ -1,4 +1,4 @@
-package com.mingeso.ic.model;
+package com.mingeso.ic.DAO;
 
 import javax.persistence.*;
 
@@ -9,7 +9,7 @@ public class Usuario {
     @Id
     @Column(name = "usuario_id")
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
+    private int id;
 
     @Column(name = "rol")
     private String rol; //administrador, manager
@@ -19,6 +19,14 @@ public class Usuario {
 
     @Column(name = "password")
     private String password;
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
 
     public String getRol() {
         return rol;

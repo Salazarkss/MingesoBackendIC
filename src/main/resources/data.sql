@@ -15,3 +15,8 @@ INSERT INTO `dbic`.`reserva` (`codigo`, `fecha_reserva`, `fin`, `valor_final`, `
 	('ABC', '2011-04-19 10:00:00', '2012-04-21 10:00:00', '50000', '2012-04-19 10:00:00', 'Ignacia Arratia', '65000', '1'),
 	('ABC', '2011-04-19 10:00:00', '2012-04-21 10:00:00', '50000', '2012-04-19 10:00:00', 'Ignacia Arratia', '65000', '2');
 
+INSERT INTO `dbic`.`usuario` (`password`,`rol`,`usuario`)
+	VALUES
+	('colocolo', 'administrador', 'ssalazar'),
+	('13deOctubre', 'usuario', 'marratia');
+
