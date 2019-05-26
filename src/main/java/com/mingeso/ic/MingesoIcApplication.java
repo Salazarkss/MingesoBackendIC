@@ -39,7 +39,7 @@ public class MingesoIcApplication extends SpringBootServletInitializer{
         CorsConfiguration config = new CorsConfiguration();
         config.setAllowCredentials(true);
         // *** URL below needs to match the Vue client URL and port ***
-        config.setAllowedOrigins(Collections.singletonList("http://165.22.249.5:8090"));
+        config.setAllowedOrigins(Collections.singletonList("http://localhost:8080"));
         config.setAllowedMethods(Collections.singletonList("*"));
         config.setAllowedHeaders(Collections.singletonList("*"));
         source.registerCorsConfiguration("/**", config);
@@ -53,7 +53,7 @@ public class MingesoIcApplication extends SpringBootServletInitializer{
         return new WebMvcConfigurerAdapter() {
             @Override
             public void addCorsMappings(CorsRegistry registry) {
-                registry.addMapping("/**").allowedOrigins("http://165.22.249.5:8090");
+                registry.addMapping("/**").allowedOrigins("*").allowedMethods("*");
         	}
     	};
 	}
