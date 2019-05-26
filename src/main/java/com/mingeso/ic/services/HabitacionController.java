@@ -3,11 +3,7 @@ package com.mingeso.ic.DAO;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 @RestController
 public class HabitacionController{
@@ -66,4 +62,15 @@ public class HabitacionController{
 		}
 	}
 
+	@PutMapping("/habitacion/{id}")
+	public void updateHabitacion(@PathVariable int id, @RequestBody Tipo tipo){
+		try{
+			Habitacion hab = habitacionDAO.getHabitacionById(id);
+			hab.setTipo(tipo);
+			habitacionDAO.updateHabitacion(hab);
+		}
+		catch (Exception e){
+			System.out.println(e);
+		}
+	}
 }

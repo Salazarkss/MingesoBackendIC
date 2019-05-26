@@ -67,6 +67,16 @@ public class HabitacionDAOImplementation extends JdbcDaoSupport implements Habit
 	}
 
 	@Override
+	public void updateHabitacion(Habitacion hab){
+		String query = "UPDATE habitacion SET tipo_tipo_id = ? WHERE habitacion_id=?";
+		Tipo tipo = hab.getTipo();
+		int id = tipo.getId();
+		System.out.println("parametros: "+id+hab.getId());
+		System.out.println("query: "+query);
+		getJdbcTemplate().update(query, id, hab.getId());
+	}
+
+	@Override
 	public void deleteHabitacion(int id) {
 		String query = "DELETE FROM habitacion where habitacion_id = ?";
 		getJdbcTemplate().update(query, new Object[]{id});

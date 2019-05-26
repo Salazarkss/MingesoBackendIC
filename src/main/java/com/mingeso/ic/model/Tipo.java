@@ -11,6 +11,7 @@ import javax.persistence.Id;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import org.hibernate.annotations.Cascade;
 
 
@@ -29,6 +30,7 @@ public class Tipo {
     @Column(name = "valor")
     private String valor;
 
+    @JsonIgnore
     @OneToMany(orphanRemoval = true, mappedBy = "tipo", cascade = CascadeType.REMOVE)
     private Set<Habitacion> habitaciones; 
 
