@@ -3,7 +3,6 @@ package com.mingeso.ic.DAO;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
@@ -36,7 +35,7 @@ public class HabitacionController{
 			return null;
 		}
 	}
-	@CrossOrigin
+
 	@PostMapping("/habitacion/{number}/{tipo}")
 	public void insertHabitacion(@PathVariable String number, @PathVariable int tipo){
 		try{
