@@ -80,7 +80,7 @@ public class ReservaController{
 		}
 	}
 
-	@PostMapping("/reserva/{id}")
+	@PostMapping("/reserva/delete/{id}")
 	public void deleteReserva(@PathVariable int id){
 		try{
 			reservaDAO.deleteReserva(id);
