@@ -51,6 +51,9 @@ public class Reserva {
     @Column(name = "valor")
     private int valor;
 
+    @Column(name = "tipo_reserva")
+    private String tipo_reserva;
+
     public int getId() {
         return id;
     }
@@ -121,6 +124,14 @@ public class Reserva {
 
     public void setHabitacion(Habitacion habitacion) {
         this.habitacion = habitacion;
+    }
+
+    public String getTipo_Reserva() {
+        return tipo_reserva;
+    }
+
+    public void setTipo_Reserva(String tipo_reserva) {
+        this.tipo_reserva = tipo_reserva;
     }
 }
 

@@ -85,6 +85,7 @@ CREATE TABLE `reserva` (
   `inicio` datetime(6) DEFAULT NULL,
   `nombre` varchar(255) DEFAULT NULL,
   `valor` int(11) DEFAULT NULL,
+  `tipo_reserva` varchar(255) DEFAULT NULL,
   `habitacion_id` int(11) NOT NULL,
   PRIMARY KEY (`reserva_id`),
   KEY `FKtr5bg864m3dseko7gif2bl239` (`habitacion_id`),

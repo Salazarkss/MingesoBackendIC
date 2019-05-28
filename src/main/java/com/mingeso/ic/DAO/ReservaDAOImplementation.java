@@ -32,9 +32,9 @@ public class ReservaDAOImplementation extends JdbcDaoSupport implements ReservaD
 	@Override
 	public void insertReserva(Reserva reserva) {
 		System.out.println(reserva);
-		String query = "INSERT INTO reserva (`codigo`, `fecha_reserva`, `fin`, `valor_final`, `inicio`, `nombre`, `valor`, `habitacion_id`) VALUES (?, ?, ?, ?, ?, ?, ?, ?)";
+		String query = "INSERT INTO reserva (`codigo`, `fecha_reserva`, `fin`, `valor_final`, `inicio`, `nombre`, `valor`, `tipo_reserva`,`habitacion_id`) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)";
 		getJdbcTemplate().update(query, new Object[]{reserva.getCodigo(), reserva.getFecha_reserva(), reserva.getFin(),
-			reserva.getFinal_descuento(), reserva.getInicio(), reserva.getNombre(), reserva.getValor(), reserva.getHabitacion().getId()});
+			reserva.getFinal_descuento(), reserva.getInicio(), reserva.getNombre(), reserva.getValor(), reserva.getTipo_Reserva(), reserva.getHabitacion().getId()});
 		
 	}
 
@@ -53,6 +53,7 @@ public class ReservaDAOImplementation extends JdbcDaoSupport implements ReservaD
 				reserva.setInicio(resultSet.getTimestamp("inicio"));
 				reserva.setNombre(resultSet.getString("nombre"));
 				reserva.setValor(resultSet.getInt("valor"));
+				reserva.setTipo_Reserva(resultSet.getString("tipo_reserva"));
 				reserva.setHabitacion(habitacionDAO.getHabitacionById((int)resultSet.getInt("habitacion_id")));
 				return reserva;
 			}
@@ -75,6 +76,7 @@ public class ReservaDAOImplementation extends JdbcDaoSupport implements ReservaD
 			reserva.setInicio((Timestamp)row.get("inicio"));
 			reserva.setNombre((String)row.get("nombre"));
 			reserva.setValor((int)row.get("valor"));
+			reserva.setTipo_Reserva((String)row.get("tipo_reserva"));
 			reserva.setHabitacion(habitacionDAO.getHabitacionById((int)row.get("habitacion_id")));
 			reservas.add(reserva);
 		}
@@ -97,6 +99,7 @@ public class ReservaDAOImplementation extends JdbcDaoSupport implements ReservaD
 			reserva.setInicio((Timestamp)row.get("inicio"));
 			reserva.setNombre((String)row.get("nombre"));
 			reserva.setValor((int)row.get("valor"));
+			reserva.setTipo_Reserva((String)row.get("tipo_reserva"));
 			reserva.setHabitacion(habitacionDAO.getHabitacionById((int)row.get("habitacion_id")));
 			reservas.add(reserva);
 		}
@@ -119,6 +122,7 @@ public class ReservaDAOImplementation extends JdbcDaoSupport implements ReservaD
 			reserva.setInicio((Timestamp)row.get("inicio"));
 			reserva.setNombre((String)row.get("nombre"));
 			reserva.setValor((int)row.get("valor"));
+			reserva.setTipo_Reserva((String)row.get("tipo_reserva"));
 			reserva.setHabitacion(habitacionDAO.getHabitacionById((int)row.get("habitacion_id")));
 			reservas.add(reserva);
 		}
