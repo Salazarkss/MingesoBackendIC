@@ -31,6 +31,7 @@ public class ReservaDAOImplementation extends JdbcDaoSupport implements ReservaD
 
 	@Override
 	public void insertReserva(Reserva reserva) {
+		System.out.println(reserva);
 		String query = "INSERT INTO reserva (`codigo`, `fecha_reserva`, `fin`, `valor_final`, `inicio`, `nombre`, `valor`, `habitacion_id`) VALUES (?, ?, ?, ?, ?, ?, ?, ?)";
 		getJdbcTemplate().update(query, new Object[]{reserva.getCodigo(), reserva.getFecha_reserva(), reserva.getFin(),
 			reserva.getFinal_descuento(), reserva.getInicio(), reserva.getNombre(), reserva.getValor(), reserva.getHabitacion().getId()});

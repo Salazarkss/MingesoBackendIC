@@ -60,7 +60,6 @@ public class ReservaController{
 
 	@GetMapping("/reservas/nombre/{nombre}")
 	public List<Reserva> getReservasByName(@PathVariable String nombre) {
-		System.out.println(nombre);
 		try{
 			return reservaDAO.getReservasByName(nombre);
 		}
