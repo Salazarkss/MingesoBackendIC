@@ -5,7 +5,7 @@ INSERT INTO `dbic`.`habitacion` (`number`, `tipo_tipo_id`)
 	('252', 3),
 	('302', 2),
 	('303', 1),
-	('401', 3),
+	('401', 3);
 
 INSERT INTO `dbic`.`tipo` (`tipo`,`valor` )
 	VALUES
