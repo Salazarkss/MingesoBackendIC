@@ -14,6 +14,7 @@ import org.openqa.selenium.*;
 public class NavigationTest {
     private WebDriver driver;
     private String baseUrl;
+    private String currentUrl;
     private boolean acceptNextAlert = true;
     private StringBuffer verificationErrors = new StringBuffer();
 
@@ -112,17 +113,36 @@ public class NavigationTest {
         driver.findElement(By.id("pass")).sendKeys("123");
         driver.findElement(By.xpath("(.//*[normalize-space(text()) and normalize-space(.)='Contraseña'])[1]/following::button[1]")).click();
         driver.findElement(By.linkText("Registro de reservas")).click();
-        driver.findElement(By.xpath("(.//*[normalize-space(text()) and normalize-space(.)='Filtro por código'])[1]/following::input[1]")).click();
+
+        driver.findElement(By.xpath("(.//input[starts-with(@id='filtro-codigo')])")).click();
+        driver.findElement(By.xpath("(.//input[starts-with(@id='filtro-codigo')])")).clear();
+        driver.findElement(By.xpath("(.//input[starts-with(@id='filtro-codigo')])")).sendKeys("A");
+        driver.findElement(By.xpath("(.//input[starts-with(@id='filtro-codigo')])")).sendKeys(Keys.ENTER);
+        System.out.println("Fin de filtro por código, esperando resultados...");
+        driver.manage().timeouts().implicitlyWait(5, TimeUnit.SECONDS);
+        driver.findElement(By.xpath("(.//input[starts-with(@id='filtro-nombre')])")).click();
+        driver.findElement(By.xpath("(.//input[starts-with(@id='filtro-nombre')])")).clear();
+        driver.findElement(By.xpath("(.//input[starts-with(@id='filtro-nombre')])")).sendKeys("Francisco");
+        driver.findElement(By.xpath("(.//input[starts-with(@id='filtro-nombre')])")).sendKeys(Keys.ENTER);
+        System.out.println("Fin de filtro por nombre, esperando resultados...");
+        driver.manage().timeouts().implicitlyWait(5, TimeUnit.SECONDS);
+        /*driver.findElement(By.xpath("(.//*[normalize-space(text()) and normalize-space(.)='Filtro por código'])[1]/following::input[1]")).click();
         driver.findElement(By.xpath("(.//*[normalize-space(text()) and normalize-space(.)='Filtro por código'])[1]/following::input[1]")).clear();
         driver.findElement(By.xpath("(.//*[normalize-space(text()) and normalize-space(.)='Filtro por código'])[1]/following::input[1]")).sendKeys("A");
         driver.findElement(By.xpath("(.//*[normalize-space(text()) and normalize-space(.)='Filtro por código'])[1]/following::input[1]")).sendKeys(Keys.ENTER);
         driver.findElement(By.xpath("(.//*[normalize-space(text()) and normalize-space(.)='Filtro por nombre'])[1]/following::input[1]")).click();
         driver.findElement(By.xpath("(.//*[normalize-space(text()) and normalize-space(.)='Filtro por nombre'])[1]/following::input[1]")).clear();
         driver.findElement(By.xpath("(.//*[normalize-space(text()) and normalize-space(.)='Filtro por nombre'])[1]/following::input[1]")).sendKeys("Francisco");
-        driver.findElement(By.xpath("(.//*[normalize-space(text()) and normalize-space(.)='Filtro por nombre'])[1]/following::input[1]")).sendKeys(Keys.ENTER);
-        driver.findElement(By.id("titulo")).click();
-        driver.findElement(By.xpath("(.//*[normalize-space(text()) and normalize-space(.)='Salir'])[1]/following::h1[1]")).click();
-        driver.findElement(By.xpath("(.//*[normalize-space(text()) and normalize-space(.)='Habitaciones'])[1]/following::div[1]")).click();
+        driver.findElement(By.xpath("(.//*[normalize-space(text()) and normalize-space(.)='Filtro por nombre'])[1]/following::input[1]")).sendKeys(Keys.ENTER);*/
+        //driver.findElement(By.id("titulo")).click();
+        //driver.findElement(By.xpath("(.//*[normalize-space(text()) and normalize-space(.)='Salir'])[1]/following::h1[1]")).click();
+        System.out.println("Fin de la prueba, cerrando sesión...");
+        driver.findElement(By.xpath("(.//input[starts-with(@id='logout-button')])")).click();
+        currentUrl = driver.getCurrentUrl();
+        System.out.println("URL actual: " + currentUrl);
+        System.out.println("(testRegistroReserva) Pruebas terminadas");
+        //assertEquals(currentUrl, "http://165.22.249.5/#/login");
+        //driver.findElement(By.xpath("(.//*[normalize-space(text()) and normalize-space(.)='Habitaciones'])[1]/following::div[1]")).click();
     }
 
 }
