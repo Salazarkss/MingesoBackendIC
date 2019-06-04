@@ -31,7 +31,7 @@ public class NavigationTest {
         driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
     }
 
-    @Test
+    /*@Test
     public void testBorrarYAgregarReservaEnRack() throws Exception {
         driver.get("http://165.22.249.5/#/");
         driver.findElement(By.linkText("Rack")).click();
@@ -57,7 +57,7 @@ public class NavigationTest {
         driver.findElement(By.name("precio")).sendKeys(Keys.ENTER);
         driver.findElement(By.xpath("(.//*[normalize-space(text()) and normalize-space(.)='Valor de la reserva'])[1]/following::button[1]")).click();
         assertEquals(closeAlertAndGetItsText(), "Insertado con éxito");
-    }
+    }*/
 
     @AfterClass(alwaysRun = true)
     public void tearDown() throws Exception {
@@ -100,6 +100,31 @@ public class NavigationTest {
             acceptNextAlert = true;
         }
     }
+
+    @Test
+    public void testRegistroReserva() throws Exception {
+        driver.get("http://165.22.249.5/#/");
+        driver.findElement(By.linkText("Registro de reservas")).click();
+        driver.findElement(By.id("user")).click();
+        driver.findElement(By.id("user")).clear();
+        driver.findElement(By.id("user")).sendKeys("mingeso");
+        driver.findElement(By.id("pass")).clear();
+        driver.findElement(By.id("pass")).sendKeys("123");
+        driver.findElement(By.xpath("(.//*[normalize-space(text()) and normalize-space(.)='Contraseña'])[1]/following::button[1]")).click();
+        driver.findElement(By.linkText("Registro de reservas")).click();
+        driver.findElement(By.xpath("(.//*[normalize-space(text()) and normalize-space(.)='Filtro por código'])[1]/following::input[1]")).click();
+        driver.findElement(By.xpath("(.//*[normalize-space(text()) and normalize-space(.)='Filtro por código'])[1]/following::input[1]")).clear();
+        driver.findElement(By.xpath("(.//*[normalize-space(text()) and normalize-space(.)='Filtro por código'])[1]/following::input[1]")).sendKeys("A");
+        driver.findElement(By.xpath("(.//*[normalize-space(text()) and normalize-space(.)='Filtro por código'])[1]/following::input[1]")).sendKeys(Keys.ENTER);
+        driver.findElement(By.xpath("(.//*[normalize-space(text()) and normalize-space(.)='Filtro por nombre'])[1]/following::input[1]")).click();
+        driver.findElement(By.xpath("(.//*[normalize-space(text()) and normalize-space(.)='Filtro por nombre'])[1]/following::input[1]")).clear();
+        driver.findElement(By.xpath("(.//*[normalize-space(text()) and normalize-space(.)='Filtro por nombre'])[1]/following::input[1]")).sendKeys("Francisco");
+        driver.findElement(By.xpath("(.//*[normalize-space(text()) and normalize-space(.)='Filtro por nombre'])[1]/following::input[1]")).sendKeys(Keys.ENTER);
+        driver.findElement(By.id("titulo")).click();
+        driver.findElement(By.xpath("(.//*[normalize-space(text()) and normalize-space(.)='Salir'])[1]/following::h1[1]")).click();
+        driver.findElement(By.xpath("(.//*[normalize-space(text()) and normalize-space(.)='Habitaciones'])[1]/following::div[1]")).click();
+    }
+
 }
 
 /*
