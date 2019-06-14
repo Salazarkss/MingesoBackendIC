@@ -1,12 +1,13 @@
-package com.mingeso.ic.DAO;
+package com.mingeso.ic.services;
 
 import java.util.List;
 
+import com.mingeso.ic.DAO.TipoDAO;
+import com.mingeso.ic.model.Tipo;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController

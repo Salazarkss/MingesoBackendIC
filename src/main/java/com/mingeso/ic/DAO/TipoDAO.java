@@ -1,5 +1,7 @@
 package com.mingeso.ic.DAO;
 
+import com.mingeso.ic.model.Tipo;
+
 import java.util.List;
 
 public interface TipoDAO {

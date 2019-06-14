@@ -1,4 +1,4 @@
-package com.mingeso.ic.DAO;
+package com.mingeso.ic.model;
 
 import javax.persistence.*;
 
