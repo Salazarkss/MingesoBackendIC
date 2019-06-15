@@ -13,7 +13,7 @@ import org.openqa.selenium.*;
 //import org.openqa.selenium.support.ui.Select;
 
 public class NavigationTest {
-    private WebDriver driver;
+    /*private WebDriver driver;
     private String baseUrl;
     private String currentUrl;
     private boolean acceptNextAlert = true;
@@ -32,8 +32,8 @@ public class NavigationTest {
         baseUrl = "https://www.katalon.com/";
         driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
     }
-
-    /*@Test
+    ///////
+    @Test
     public void testBorrarYAgregarReservaEnRack() throws Exception {
         driver.get("http://165.22.249.5/#/");
         driver.findElement(By.linkText("Rack")).click();
@@ -59,7 +59,7 @@ public class NavigationTest {
         driver.findElement(By.name("precio")).sendKeys(Keys.ENTER);
         driver.findElement(By.xpath("(.//*[normalize-space(text()) and normalize-space(.)='Valor de la reserva'])[1]/following::button[1]")).click();
         assertEquals(closeAlertAndGetItsText(), "Insertado con éxito");
-    }*/
+    }////////////
 
     @AfterClass(alwaysRun = true)
     public void tearDown() throws Exception {
@@ -204,7 +204,7 @@ public class NavigationTest {
         driver.findElement(By.xpath("(.//*[normalize-space(text()) and normalize-space(.)='Filtro por nombre'])[1]/following::input[1]")).click();
         driver.findElement(By.xpath("(.//*[normalize-space(text()) and normalize-space(.)='Filtro por nombre'])[1]/following::input[1]")).clear();
         driver.findElement(By.xpath("(.//*[normalize-space(text()) and normalize-space(.)='Filtro por nombre'])[1]/following::input[1]")).sendKeys("Francisco");
-        driver.findElement(By.xpath("(.//*[normalize-space(text()) and normalize-space(.)='Filtro por nombre'])[1]/following::input[1]")).sendKeys(Keys.ENTER);*/
+        driver.findElement(By.xpath("(.//*[normalize-space(text()) and normalize-space(.)='Filtro por nombre'])[1]/following::input[1]")).sendKeys(Keys.ENTER);
         //driver.findElement(By.id("titulo")).click();
         //driver.findElement(By.xpath("(.//*[normalize-space(text()) and normalize-space(.)='Salir'])[1]/following::h1[1]")).click();
         System.out.println("Fin de la prueba, cerrando sesión...");
@@ -214,11 +214,12 @@ public class NavigationTest {
         System.out.println("(testRegistroReserva) Pruebas terminadas");
         //assertEquals(currentUrl, "http://165.22.249.5/#/login");
         //driver.findElement(By.xpath("(.//*[normalize-space(text()) and normalize-space(.)='Habitaciones'])[1]/following::div[1]")).click();
+
     }
 
 }
 
-/*
+
 package com.mingeso.ic.TestNG;
 
 import org.testng.annotations.Test;
@@ -252,5 +253,5 @@ public class NavigationTest {
         System.out.println("SELENIUM: PRUEBAS PASADAS!");
 
         driver.quit();
-    }
-}*/
+    }*/
+}
