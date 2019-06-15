@@ -5,6 +5,7 @@ import java.util.concurrent.TimeUnit;
 
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
+import org.openqa.selenium.support.ui.Select;
 import org.testng.annotations.*;
 import static org.testng.Assert.*;
 import org.openqa.selenium.*;
@@ -100,6 +101,76 @@ public class NavigationTest {
         } finally {
             acceptNextAlert = true;
         }
+    }
+
+    @Test
+    public void testAgregarHabitacion() throws Exception {
+        driver.get("http://localhost:8080/#/");
+        driver.findElement(By.linkText("Habitaciones")).click();
+        driver.findElement(By.id("user")).click();
+        driver.findElement(By.id("user")).clear();
+        driver.findElement(By.id("user")).sendKeys("Vicente");
+        driver.findElement(By.id("pass")).clear();
+        driver.findElement(By.id("pass")).sendKeys("pass");
+        driver.findElement(By.id("pass")).sendKeys(Keys.ENTER);
+        driver.findElement(By.xpath("(.//*[normalize-space(text()) and normalize-space(.)='Contraseña'])[1]/following::button[1]")).click();
+        for (int second = 0;; second++) {
+            if (second >= 60) fail("timeout");
+            try { if (driver.findElement(By.id("profile")).isDisplayed()) break; } catch (Exception e) {}
+            Thread.sleep(1000);
+        }
+
+        driver.findElement(By.linkText("Habitaciones")).click();
+        driver.findElement(By.xpath("(.//*[normalize-space(text()) and normalize-space(.)='Editor de habitaciones'])[1]/following::button[1]")).click();
+        driver.findElement(By.id("number")).click();
+        driver.findElement(By.id("number")).clear();
+        driver.findElement(By.id("number")).sendKeys("777");
+        driver.findElement(By.id("tipo")).click();
+        new Select(driver.findElement(By.id("tipo"))).selectByIndex(0);
+        driver.findElement(By.id("tipo")).click();
+        driver.findElement(By.xpath("(.//*[normalize-space(text()) and normalize-space(.)='Cancel'])[1]/following::button[1]")).click();
+        for (int second = 0;; second++) {
+            if (second >= 60) fail("timeout");
+            try { if (driver.findElement(By.xpath("(.//*[normalize-space(text()) and normalize-space(.)='Simple'])[3]/following::button[1]")).isDisplayed()) break; } catch (Exception e) {}
+            Thread.sleep(1000);
+        }
+        //driver.findElement(By.xpath("(.//*[normalize-space(text()) and normalize-space(.)='Simple'])[3]/following::button[1]")).click();
+        //driver.findElement(By.xpath("(.//*[normalize-space(text()) and normalize-space(.)='Tipo'])[2]/following::button[1]")).click();
+        System.out.println("Fin de la prueba, cerrando sesión...");
+        driver.findElement(By.id("logout-button")).click();
+        System.out.println("(EliminarHabitacion) Pruebas terminadas");
+    }
+
+    @Test
+    public void testEliminarHabitacion() throws Exception {
+        driver.get("http://localhost:8080/#/");
+        driver.findElement(By.linkText("Habitaciones")).click();
+        driver.findElement(By.id("user")).click();
+        driver.findElement(By.id("user")).clear();
+        driver.findElement(By.id("user")).sendKeys("Vicente");
+        driver.findElement(By.id("pass")).clear();
+        driver.findElement(By.id("pass")).sendKeys("pass");
+        driver.findElement(By.id("pass")).sendKeys(Keys.ENTER);
+        driver.findElement(By.xpath("(.//*[normalize-space(text()) and normalize-space(.)='Contraseña'])[1]/following::button[1]")).click();
+        for (int second = 0;; second++) {
+            if (second >= 60) fail("timeout");
+            try { if (driver.findElement(By.id("profile")).isDisplayed()) break; } catch (Exception e) {}
+            Thread.sleep(1000);
+        }
+
+        driver.findElement(By.linkText("Habitaciones")).click();
+        for (int second = 0;; second++) {
+            if (second >= 60) fail("timeout");
+            try { if (driver.findElement(By.xpath("(.//*[normalize-space(text()) and normalize-space(.)='Editar'])[6]/following::button[1]")).isDisplayed()) break; } catch (Exception e) {}
+            Thread.sleep(1000);
+        }
+
+        acceptNextAlert = true;
+        driver.findElement(By.xpath("(.//*[normalize-space(text()) and normalize-space(.)='Editar'])[6]/following::button[1]")).click();
+        assertEquals(closeAlertAndGetItsText(), "Seguro que desea eliminar la habitación 777");
+        System.out.println("Fin de la prueba, cerrando sesión...");
+        driver.findElement(By.id("logout-button")).click();
+        System.out.println("(EliminarHabitacion) Pruebas terminadas");
     }
 
     @Test
