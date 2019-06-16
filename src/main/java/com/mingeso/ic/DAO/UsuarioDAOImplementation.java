@@ -72,4 +72,26 @@ public class UsuarioDAOImplementation extends JdbcDaoSupport implements UsuarioD
 		getJdbcTemplate().update(query, new Object[]{id});
 	}
 
+	@Override
+	public String login(Usuario usuario) {
+		String query = "SELECT * FROM usuario where usuario = ?";
+		Usuario dbUser = (Usuario)getJdbcTemplate().queryForObject(query, new Object[]{usuario.getUsuario()}, new RowMapper<Usuario>(){
+			@Override
+			public Usuario mapRow(ResultSet resultSet, int rwNumber) throws SQLException{
+				Usuario user = new Usuario();
+				user.setId(resultSet.getInt("usuario_id"));
+				user.setPassword(resultSet.getString("password"));
+				user.setRol(resultSet.getString("rol"));
+				user.setUsuario(resultSet.getString("usuario"));
+				return user;
+			}
+		});
+		if(usuario.getPassword().equals(dbUser.getPassword())){
+			return "abcdefghijk";
+		}
+		else{
+			return "null";
+		}
+	}
+
 }

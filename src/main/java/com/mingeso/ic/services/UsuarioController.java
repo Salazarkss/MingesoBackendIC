@@ -62,4 +62,14 @@ public class UsuarioController{
 		}
 	}
 
+	@PostMapping("/usuario/login")
+	public String login(@RequestBody Usuario user){
+		try{
+			return usuarioDAO.login(user);
+		}
+		catch(Exception e){
+			System.out.println(e);
+			return null;
+		}
+	}
 }

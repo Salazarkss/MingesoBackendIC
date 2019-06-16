@@ -9,4 +9,5 @@ public interface UsuarioDAO {
 	Usuario getUsuarioById(int id);
 	List<Usuario> getAll();
 	void deleteUsuario(int id);
+	String login(Usuario usuario);
 }

@@ -1,4 +1,4 @@
-package com.mingeso.ic.TestNG;
+/*package com.mingeso.ic.TestNG;
 
 import java.util.concurrent.TimeUnit;
 import java.util.logging.Logger;
@@ -31,7 +31,7 @@ public class NavigationTest {
         baseUrl = "https://www.katalon.com/";
         assertNotNull(driver);
         driver.manage().timeouts().implicitlyWait(20, TimeUnit.SECONDS);
-    }
+    }*/
     ///////
     /*@Test
     public void testBorrarYAgregarReservaEnRack() throws Exception {
@@ -61,7 +61,7 @@ public class NavigationTest {
         assertEquals(closeAlertAndGetItsText(), "Insertado con éxito");
     }//////////// Se realizara esta prueba manualmente */
 
-    @AfterClass(alwaysRun = true)
+/*    @AfterClass(alwaysRun = true)
     public void tearDown() throws Exception {
         driver.quit();
         String verificationErrorString = verificationErrors.toString();
@@ -111,9 +111,9 @@ public class NavigationTest {
             }
             Thread.sleep(1000);
         }
-    }
+    }*/
 
-    @Test
+/*    @Test
     public void testAgregarHabitacion() throws Exception {
         driver.get("http://165.22.249.5/#/");
         driver.findElement(By.linkText("Habitaciones")).click();
@@ -136,7 +136,7 @@ public class NavigationTest {
         driver.findElement(By.id("tipo")).click();
         driver.findElement(By.xpath("(.//*[normalize-space(text()) and normalize-space(.)='Cancel'])[1]/following::button[1]")).click();
 
-        driver.manage().timeouts().implicitlyWait(5, TimeUnit.SECONDS);
+        driver.manage().timeouts().implicitlyWait(5, TimeUnit.SECONDS);*/
         /*for (int second = 0;; second++) {
             if (second >= 10) fail("timeout");
             try { if (driver.findElement(By.xpath("(.//*[normalize-space(text()) and normalize-space(.)='Simple'])[3]/following::button[1]")).isDisplayed()) break; } catch (Exception e) {}
@@ -144,12 +144,12 @@ public class NavigationTest {
         }*/
         //driver.findElement(By.xpath("(.//*[normalize-space(text()) and normalize-space(.)='Simple'])[3]/following::button[1]")).click();
         //driver.findElement(By.xpath("(.//*[normalize-space(text()) and normalize-space(.)='Tipo'])[2]/following::button[1]")).click();
-        System.out.println("Fin de la prueba, cerrando sesión...");
+/*        System.out.println("Fin de la prueba, cerrando sesión...");
         driver.findElement(By.id("logout-button")).click();
         System.out.println("(EliminarHabitacion) Pruebas terminadas");
-    }
+    }*/
 
-    @Test
+/*    @Test
     public void testEliminarHabitacion() throws Exception {
         driver.get("http://165.22.249.5/#/");
         driver.findElement(By.linkText("Habitaciones")).click();
@@ -163,20 +163,20 @@ public class NavigationTest {
         //waitElement(10, "profile");
         driver.manage().timeouts().implicitlyWait(5, TimeUnit.SECONDS);
         driver.findElement(By.linkText("Habitaciones")).click();
-        driver.manage().timeouts().implicitlyWait(5, TimeUnit.SECONDS);
+        driver.manage().timeouts().implicitlyWait(5, TimeUnit.SECONDS);*/
         /*for (int second = 0;; second++) {
             if (second >= 10) fail("timeout");
             try { if (driver.findElement(By.xpath("(.//*[normalize-space(text()) and normalize-space(.)='Editar'])[6]/following::button[1]")).isDisplayed()) break; } catch (Exception e) {}
             Thread.sleep(1000);
         }*/
 
-        acceptNextAlert = true;
+/*        acceptNextAlert = true;
         driver.findElement(By.xpath("(.//*[normalize-space(text()) and normalize-space(.)='Editar'])[6]/following::button[1]")).click();
         assertEquals(closeAlertAndGetItsText(), "Seguro que desea eliminar la habitación 777");
         System.out.println("Fin de la prueba, cerrando sesión...");
         driver.findElement(By.id("logout-button")).click();
         System.out.println("(EliminarHabitacion) Pruebas terminadas");
-    }
+    }*/
 
     /*@Test
     public void testRegistroReserva() throws Exception {
@@ -221,4 +221,4 @@ public class NavigationTest {
         //assertEquals(currentUrl, "http://165.22.249.5/#/login");
         //driver.findElement(By.xpath("(.//*[normalize-space(text()) and normalize-space(.)='Habitaciones'])[1]/following::div[1]")).click();
     }*/
-}
+//}
