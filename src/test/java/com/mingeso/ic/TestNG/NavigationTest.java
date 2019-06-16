@@ -9,11 +9,11 @@ import org.openqa.selenium.support.ui.Select;
 import org.testng.annotations.*;
 import static org.testng.Assert.*;
 import org.openqa.selenium.*;
-//import org.openqa.selenium.firefox.FirefoxDriver;
-//import org.openqa.selenium.support.ui.Select;
+import org.openqa.selenium.firefox.FirefoxDriver;
+import org.openqa.selenium.support.ui.Select;
 
 public class NavigationTest {
-    /*private WebDriver driver;
+    private WebDriver driver;
     private String baseUrl;
     private String currentUrl;
     private boolean acceptNextAlert = true;
@@ -33,7 +33,7 @@ public class NavigationTest {
         driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
     }
     ///////
-    @Test
+    /*@Test
     public void testBorrarYAgregarReservaEnRack() throws Exception {
         driver.get("http://165.22.249.5/#/");
         driver.findElement(By.linkText("Rack")).click();
@@ -59,7 +59,7 @@ public class NavigationTest {
         driver.findElement(By.name("precio")).sendKeys(Keys.ENTER);
         driver.findElement(By.xpath("(.//*[normalize-space(text()) and normalize-space(.)='Valor de la reserva'])[1]/following::button[1]")).click();
         assertEquals(closeAlertAndGetItsText(), "Insertado con éxito");
-    }////////////
+    }//////////// Se realizara esta prueba manualmente */
 
     @AfterClass(alwaysRun = true)
     public void tearDown() throws Exception {
@@ -105,13 +105,13 @@ public class NavigationTest {
 
     @Test
     public void testAgregarHabitacion() throws Exception {
-        driver.get("http://localhost:8080/#/");
+        driver.get("http://165.22.249.5/#/");
         driver.findElement(By.linkText("Habitaciones")).click();
         driver.findElement(By.id("user")).click();
         driver.findElement(By.id("user")).clear();
-        driver.findElement(By.id("user")).sendKeys("Vicente");
+        driver.findElement(By.id("user")).sendKeys("mingeso");
         driver.findElement(By.id("pass")).clear();
-        driver.findElement(By.id("pass")).sendKeys("pass");
+        driver.findElement(By.id("pass")).sendKeys("123");
         driver.findElement(By.id("pass")).sendKeys(Keys.ENTER);
         driver.findElement(By.xpath("(.//*[normalize-space(text()) and normalize-space(.)='Contraseña'])[1]/following::button[1]")).click();
         for (int second = 0;; second++) {
@@ -143,13 +143,13 @@ public class NavigationTest {
 
     @Test
     public void testEliminarHabitacion() throws Exception {
-        driver.get("http://localhost:8080/#/");
+        driver.get("http://165.22.249.5/#/");
         driver.findElement(By.linkText("Habitaciones")).click();
         driver.findElement(By.id("user")).click();
         driver.findElement(By.id("user")).clear();
-        driver.findElement(By.id("user")).sendKeys("Vicente");
+        driver.findElement(By.id("user")).sendKeys("mingeso");
         driver.findElement(By.id("pass")).clear();
-        driver.findElement(By.id("pass")).sendKeys("pass");
+        driver.findElement(By.id("pass")).sendKeys("123");
         driver.findElement(By.id("pass")).sendKeys(Keys.ENTER);
         driver.findElement(By.xpath("(.//*[normalize-space(text()) and normalize-space(.)='Contraseña'])[1]/following::button[1]")).click();
         for (int second = 0;; second++) {
@@ -173,18 +173,22 @@ public class NavigationTest {
         System.out.println("(EliminarHabitacion) Pruebas terminadas");
     }
 
-    @Test
+    /*@Test
     public void testRegistroReserva() throws Exception {
         driver.get("http://165.22.249.5/#/");
         driver.findElement(By.linkText("Registro de reservas")).click();
         driver.findElement(By.id("user")).click();
         driver.findElement(By.id("user")).clear();
-        driver.findElement(By.id("user")).sendKeys("mingeso");
+        driver.findElement(By.id("user")).sendKeys("Vicente");
         driver.findElement(By.id("pass")).clear();
-        driver.findElement(By.id("pass")).sendKeys("123");
+        driver.findElement(By.id("pass")).sendKeys("pass");
         driver.findElement(By.xpath("(.//*[normalize-space(text()) and normalize-space(.)='Contraseña'])[1]/following::button[1]")).click();
+        for (int second = 0;; second++) {
+            if (second >= 60) fail("timeout");
+            try { if (driver.findElement(By.id("profile")).isDisplayed()) break; } catch (Exception e) {}
+            Thread.sleep(1000);
+        }
         driver.findElement(By.linkText("Registro de reservas")).click();
-
         driver.findElement(By.xpath("(.//input[starts-with(@id='filtro-codigo')])")).click();
         driver.findElement(By.xpath("(.//input[starts-with(@id='filtro-codigo')])")).clear();
         driver.findElement(By.xpath("(.//input[starts-with(@id='filtro-codigo')])")).sendKeys("A");
@@ -214,44 +218,6 @@ public class NavigationTest {
         System.out.println("(testRegistroReserva) Pruebas terminadas");
         //assertEquals(currentUrl, "http://165.22.249.5/#/login");
         //driver.findElement(By.xpath("(.//*[normalize-space(text()) and normalize-space(.)='Habitaciones'])[1]/following::div[1]")).click();
-
-    }
-
-}
-
-
-package com.mingeso.ic.TestNG;
-
-import org.testng.annotations.Test;
-import org.openqa.selenium.By;
-import org.openqa.selenium.chrome.ChromeDriver;
-import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.chrome.ChromeOptions;
-
-import java.io.IOException;
-
-public class NavigationTest {
-
-    @Test
-    public void EliminarAgregarReserva() throws  IOException, Imn{
-
-    }
-
-    /*@Test
-    public void NavigateTest() throws IOException, InterruptedException {
-        System.out.println("SELENIUM: INICIANDO PRUEBAS...");
-        System.setProperty("webdriver.chrome.driver", "/usr/bin/chromedriver");
-        // System.setProperty("webdriver.chrome.driver","lib/chromedriver_win32/chromedriver.exe");
-        ChromeOptions chromeOptions = new ChromeOptions();
-        chromeOptions.addArguments("--headless");
-        chromeOptions.addArguments("--no-sandbox");
-        WebDriver driver = new ChromeDriver(chromeOptions);
-
-        driver.get("https://www.google.com");
-        Thread.sleep(1000);
-        driver.findElement(By.name("q")).sendKeys("No soy un bot");
-        System.out.println("SELENIUM: PRUEBAS PASADAS!");
-
-        driver.quit();
+        */
     }*/
 }
