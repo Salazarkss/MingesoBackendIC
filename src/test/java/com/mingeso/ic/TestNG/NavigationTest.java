@@ -218,6 +218,5 @@ public class NavigationTest {
         System.out.println("(testRegistroReserva) Pruebas terminadas");
         //assertEquals(currentUrl, "http://165.22.249.5/#/login");
         //driver.findElement(By.xpath("(.//*[normalize-space(text()) and normalize-space(.)='Habitaciones'])[1]/following::div[1]")).click();
-        */
     }*/
 }
