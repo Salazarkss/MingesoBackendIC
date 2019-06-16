@@ -1,7 +1,5 @@
 package com.mingeso.ic;
 
-import com.mingeso.ic.DAO.*;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.boot.web.servlet.FilterRegistrationBean;
@@ -23,7 +21,6 @@ import org.springframework.boot.builder.SpringApplicationBuilder;
 import java.util.Collections;
 
 @SpringBootApplication(scanBasePackages="com.mingeso.ic")
-@ComponentScan("com.mingeso.ic.DAO")
 public class MingesoIcApplication extends SpringBootServletInitializer{
 
     public static void main(String[] args) {
