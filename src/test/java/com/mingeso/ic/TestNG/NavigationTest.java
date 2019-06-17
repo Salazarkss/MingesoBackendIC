@@ -124,28 +124,23 @@ public class NavigationTest {
         driver.findElement(By.id("pass")).sendKeys("123");
         driver.findElement(By.id("pass")).sendKeys(Keys.ENTER);
         driver.findElement(By.xpath("(.//*[normalize-space(text()) and normalize-space(.)='Contraseña'])[1]/following::button[1]")).click();
-        //waitElement(10, "profile");
-        driver.manage().timeouts().implicitlyWait(5, TimeUnit.SECONDS);
+        waitElement(5, "profile");
+        //driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
         driver.findElement(By.linkText("Habitaciones")).click();
+        Thread.sleep(3000);
         driver.findElement(By.xpath("(.//*[normalize-space(text()) and normalize-space(.)='Editor de habitaciones'])[1]/following::button[1]")).click();
+        Thread.sleep(2000);
         driver.findElement(By.id("number")).click();
         driver.findElement(By.id("number")).clear();
         driver.findElement(By.id("number")).sendKeys("777");
         driver.findElement(By.id("tipo")).click();
-        new Select(driver.findElement(By.id("tipo"))).selectByIndex(0);
+        new Select(driver.findElement(By.id("tipo"))).selectByVisibleText("Simple");
         driver.findElement(By.id("tipo")).click();
         driver.findElement(By.xpath("(.//*[normalize-space(text()) and normalize-space(.)='Cancel'])[1]/following::button[1]")).click();
-
-        driver.manage().timeouts().implicitlyWait(5, TimeUnit.SECONDS);
-        /*for (int second = 0;; second++) {
-            if (second >= 10) fail("timeout");
-            try { if (driver.findElement(By.xpath("(.//*[normalize-space(text()) and normalize-space(.)='Simple'])[3]/following::button[1]")).isDisplayed()) break; } catch (Exception e) {}
-            Thread.sleep(1000);
-        }*/
-        //driver.findElement(By.xpath("(.//*[normalize-space(text()) and normalize-space(.)='Simple'])[3]/following::button[1]")).click();
-        //driver.findElement(By.xpath("(.//*[normalize-space(text()) and normalize-space(.)='Tipo'])[2]/following::button[1]")).click();
+        Thread.sleep(5000);
         logger.info("Fin de la prueba, cerrando sesión...");
         driver.findElement(By.id("logout-button")).click();
+        Thread.sleep(5000);
         logger.info("(EliminarHabitacion) Pruebas terminadas");
     }
 
@@ -160,19 +155,19 @@ public class NavigationTest {
         driver.findElement(By.id("pass")).sendKeys("123");
         driver.findElement(By.id("pass")).sendKeys(Keys.ENTER);
         driver.findElement(By.xpath("(.//*[normalize-space(text()) and normalize-space(.)='Contraseña'])[1]/following::button[1]")).click();
-        //waitElement(10, "profile");
-        driver.manage().timeouts().implicitlyWait(5, TimeUnit.SECONDS);
+        waitElement(5, "profile");
         driver.findElement(By.linkText("Habitaciones")).click();
-        driver.manage().timeouts().implicitlyWait(5, TimeUnit.SECONDS);
-        /*for (int second = 0;; second++) {
-            if (second >= 10) fail("timeout");
+       //Thread.sleep(5000);
+       //driver.manage().timeouts().implicitlyWait(5, TimeUnit.SECONDS);
+        for (int second = 0;; second++) {
+            if (second >= 5) fail("timeout");
             try { if (driver.findElement(By.xpath("(.//*[normalize-space(text()) and normalize-space(.)='Editar'])[6]/following::button[1]")).isDisplayed()) break; } catch (Exception e) {}
             Thread.sleep(1000);
-        }*/
-
+        }
         acceptNextAlert = true;
         driver.findElement(By.xpath("(.//*[normalize-space(text()) and normalize-space(.)='Editar'])[6]/following::button[1]")).click();
         assertEquals(closeAlertAndGetItsText(), "Seguro que desea eliminar la habitación 777");
+        Thread.sleep(7000);
         logger.info("Fin de la prueba, cerrando sesión...");
         driver.findElement(By.id("logout-button")).click();
         logger.info("(EliminarHabitacion) Pruebas terminadas");
@@ -184,41 +179,30 @@ public class NavigationTest {
         driver.findElement(By.linkText("Registro de reservas")).click();
         driver.findElement(By.id("user")).click();
         driver.findElement(By.id("user")).clear();
-        driver.findElement(By.id("user")).sendKeys("Vicente");
+        driver.findElement(By.id("user")).sendKeys("mingeso");
         driver.findElement(By.id("pass")).clear();
-        driver.findElement(By.id("pass")).sendKeys("pass");
+        driver.findElement(By.id("pass")).sendKeys("123");
         driver.findElement(By.xpath("(.//*[normalize-space(text()) and normalize-space(.)='Contraseña'])[1]/following::button[1]")).click();
-        //waitElement(10, "profile");
-        driver.manage().timeouts().implicitlyWait(8, TimeUnit.SECONDS);
+        waitElement(3, "profile");
+        //driver.manage().timeouts().implicitlyWait(8, TimeUnit.SECONDS);
         driver.findElement(By.linkText("Registro de reservas")).click();
-        driver.findElement(By.xpath("(.//input[starts-with(@id='filtro-codigo')])")).click();
-        driver.findElement(By.xpath("(.//input[starts-with(@id='filtro-codigo')])")).clear();
-        driver.findElement(By.xpath("(.//input[starts-with(@id='filtro-codigo')])")).sendKeys("A");
-        driver.findElement(By.xpath("(.//input[starts-with(@id='filtro-codigo')])")).sendKeys(Keys.ENTER);
+        waitElement(3, "filtro-codigo");
+        driver.findElement(By.id("filtro-codigo")).click();
+        driver.findElement(By.id("filtro-codigo")).clear();
+        driver.findElement(By.id("filtro-codigo")).sendKeys("A");
+        driver.findElement(By.id("filtro-codigo")).sendKeys(Keys.ENTER);
         logger.info("Fin de filtro por código, esperando resultados...");
-        driver.manage().timeouts().implicitlyWait(6, TimeUnit.SECONDS);
-        driver.findElement(By.xpath("(.//input[starts-with(@id='filtro-nombre')])")).click();
-        driver.findElement(By.xpath("(.//input[starts-with(@id='filtro-nombre')])")).clear();
-        driver.findElement(By.xpath("(.//input[starts-with(@id='filtro-nombre')])")).sendKeys("Francisco");
-        driver.findElement(By.xpath("(.//input[starts-with(@id='filtro-nombre')])")).sendKeys(Keys.ENTER);
+        Thread.sleep(6000);
+        driver.findElement(By.id("filtro-nombre")).click();
+        driver.findElement(By.id("filtro-nombre")).clear();
+        driver.findElement(By.id("filtro-nombre")).sendKeys("Francisco");
+        driver.findElement(By.id("filtro-nombre")).sendKeys(Keys.ENTER);
         logger.info("Fin de filtro por nombre, esperando resultados...");
-        driver.manage().timeouts().implicitlyWait(6, TimeUnit.SECONDS);
-        driver.findElement(By.xpath("(.//*[normalize-space(text()) and normalize-space(.)='Filtro por código'])[1]/following::input[1]")).click();
-        driver.findElement(By.xpath("(.//*[normalize-space(text()) and normalize-space(.)='Filtro por código'])[1]/following::input[1]")).clear();
-        driver.findElement(By.xpath("(.//*[normalize-space(text()) and normalize-space(.)='Filtro por código'])[1]/following::input[1]")).sendKeys("A");
-        driver.findElement(By.xpath("(.//*[normalize-space(text()) and normalize-space(.)='Filtro por código'])[1]/following::input[1]")).sendKeys(Keys.ENTER);
-        driver.findElement(By.xpath("(.//*[normalize-space(text()) and normalize-space(.)='Filtro por nombre'])[1]/following::input[1]")).click();
-        driver.findElement(By.xpath("(.//*[normalize-space(text()) and normalize-space(.)='Filtro por nombre'])[1]/following::input[1]")).clear();
-        driver.findElement(By.xpath("(.//*[normalize-space(text()) and normalize-space(.)='Filtro por nombre'])[1]/following::input[1]")).sendKeys("Francisco");
-        driver.findElement(By.xpath("(.//*[normalize-space(text()) and normalize-space(.)='Filtro por nombre'])[1]/following::input[1]")).sendKeys(Keys.ENTER);
-        //driver.findElement(By.id("titulo")).click();
-        //driver.findElement(By.xpath("(.//*[normalize-space(text()) and normalize-space(.)='Salir'])[1]/following::h1[1]")).click();
-        logger.info("Fin de la prueba, cerrando sesión...");
-        driver.findElement(By.xpath("(.//input[starts-with(@id='logout-button')])")).click();
+        Thread.sleep(6000);
+         logger.info("Fin de la prueba, cerrando sesión...");
+        driver.findElement(By.id("logout-button")).click();
         currentUrl = driver.getCurrentUrl();
-        logger.info("URL actual: " + currentUrl);
+        assertEquals(currentUrl, "http://165.22.249.5/#/login");
         logger.info("(testRegistroReserva) Pruebas terminadas");
-        //assertEquals(currentUrl, "http://165.22.249.5/#/login");
-        //driver.findElement(By.xpath("(.//*[normalize-space(text()) and normalize-space(.)='Habitaciones'])[1]/following::div[1]")).click();
     }
 }
