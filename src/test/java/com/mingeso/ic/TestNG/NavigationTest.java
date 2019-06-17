@@ -22,7 +22,7 @@ public class NavigationTest {
     public void setUp() throws Exception {
         logger.info("SELENIUM: INICIANDO PRUEBAS...");
         System.setProperty("webdriver.chrome.driver", "/usr/bin/chromedriver");
-        System.setProperty("webdriver.chrome.driver","lib/chromedriver_win32/chromedriver.exe");
+        //System.setProperty("webdriver.chrome.driver","lib/chromedriver_win32/chromedriver.exe");
         ChromeOptions chromeOptions = new ChromeOptions();
         chromeOptions.addArguments("--headless");
         chromeOptions.addArguments("--no-sandbox");
