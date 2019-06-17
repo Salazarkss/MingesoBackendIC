@@ -13,6 +13,5 @@ public class HabitacionTest {
         assertTrue(123 == hab.getId());
         hab.setNumber("123");
         assertEquals("123", hab.getNumber());
-        System.out.println("HabitacionTest Succegul");
     }
 }
