@@ -4,6 +4,7 @@ import org.junit.Test;
 
 import static org.junit.Assert.*;
 
+
 public class HabitacionTest {
     @Test
     public void testDeHabitacion(){
@@ -12,6 +13,6 @@ public class HabitacionTest {
         assertTrue(123 == hab.getId());
         hab.setNumber("123");
         assertEquals("123", hab.getNumber());
-
+        System.out.println("HabitacionTest Succegul");
     }
 }
