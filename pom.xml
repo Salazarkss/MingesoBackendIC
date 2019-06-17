@@ -18,11 +18,6 @@
         <java.version>1.8</java.version>
         <spring-cloud.version>Greenwich.SR1</spring-cloud.version>
         <tomcat.version>8.5.40</tomcat.version>
-        <sonar.core.codeCoveragePlugin>jacoco</sonar.core.codeCoveragePlugin>
-        <sonar.dynamicAnalysis>reuseReports</sonar.dynamicAnalysis>
-        <sonar.jacoco.reportPath>${project.basedir}/../target/jacoco.exec</sonar.jacoco.reportPath>
-        <jacoco.version>0.6.2.201302030002</jacoco.version>
-        <jacoco.maven.version>0.7.0.201403182114</jacoco.maven.version>
     </properties>
 
     <dependencies>
@@ -130,8 +125,8 @@
         </dependency>
         <dependency>
             <groupId>org.jacoco</groupId>
-            <artifactId>org.jacoco.core</artifactId>
-            <version>${jacoco.version}</version>
+            <artifactId>jacoco-maven-plugin</artifactId>
+            <version>0.7.9</version>
             <scope>test</scope>
         </dependency>
     </dependencies>
@@ -178,18 +173,23 @@
             <plugin>
                 <groupId>org.jacoco</groupId>
                 <artifactId>jacoco-maven-plugin</artifactId>
-                <version>${jacoco.maven.version}</version>
+                <version>0.7.9</version>
                 <executions>
                     <execution>
+                        <id>pre-unit-test</id>
                         <goals>
                             <goal>prepare-agent</goal>
                         </goals>
                     </execution>
+                    <execution>
+                        <id>post-unit-test</id>
+                        <phase>test</phase>
+                        <goals>
+                            <goal>report</goal>
+                        </goals>
+                    </execution>
                 </executions>
-                <configuration>
-                    <destFile>${sonar.jacoco.reportPath}</destFile>
-                </configuration>
-            </plugin>​
+            </plugin>
         </plugins>
         </build>
 
