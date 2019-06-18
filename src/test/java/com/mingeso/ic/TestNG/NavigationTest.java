@@ -166,7 +166,7 @@ public class NavigationTest {
         }
         acceptNextAlert = true;
         driver.findElement(By.xpath("(.//*[normalize-space(text()) and normalize-space(.)='Editar'])[6]/following::button[1]")).click();
-        //assertEquals(closeAlertAndGetItsText(), "Seguro que desea eliminar la habitación 777");
+        logger.info(closeAlertAndGetItsText());
         Thread.sleep(8000);
         logger.info("Fin de la prueba, cerrando sesión...");
         driver.findElement(By.id("logout-button")).click();
