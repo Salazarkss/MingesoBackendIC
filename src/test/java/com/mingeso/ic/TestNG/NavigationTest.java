@@ -13,7 +13,6 @@ import org.openqa.selenium.*;
 public class NavigationTest {
     private WebDriver driver;
     private String baseUrl;
-    private String currentUrl;
     private boolean acceptNextAlert = true;
     private StringBuffer verificationErrors = new StringBuffer();
     private static final org.slf4j.Logger logger = LoggerFactory.getLogger(NavigationTest.class);
@@ -32,34 +31,6 @@ public class NavigationTest {
         assertNotNull(driver);
         driver.manage().timeouts().implicitlyWait(20, TimeUnit.SECONDS);
     }
-    ///////
-    /*@Test
-    public void testBorrarYAgregarReservaEnRack() throws Exception {
-        driver.get("http://165.22.249.5/#/");
-        driver.findElement(By.linkText("Rack")).click();
-        driver.findElement(By.id("inicio")).click();
-        driver.findElement(By.id("inicio")).clear();
-        driver.findElement(By.id("inicio")).sendKeys("2019-05-01");
-        driver.findElement(By.id("inicio")).click();
-        assertEquals(closeAlertAndGetItsText(), "Dias: 61");
-        acceptNextAlert = true;
-        driver.findElement(By.xpath("(.//*[normalize-space(text()) and normalize-space(.)='Francisco Diaz'])[1]/following::span[1]")).click();
-        assertTrue(closeAlertAndGetItsText().matches("^Seguro desea cancelar esta reserva[\\s\\S]$"));
-        assertEquals(closeAlertAndGetItsText(), "Eliminado con éxito");
-        driver.findElement(By.xpath("(.//*[normalize-space(text()) and normalize-space(.)='julio 2019'])[1]/following::div[130]")).click();
-        driver.findElement(By.id("name")).click();
-        driver.findElement(By.id("name")).clear();
-        driver.findElement(By.id("name")).sendKeys("Prueba");
-        driver.findElement(By.id("tipo")).click();
-        driver.findElement(By.id("tipo")).clear();
-        driver.findElement(By.id("tipo")).sendKeys("Particular");
-        driver.findElement(By.name("precio")).click();
-        driver.findElement(By.name("precio")).clear();
-        driver.findElement(By.name("precio")).sendKeys("25000");
-        driver.findElement(By.name("precio")).sendKeys(Keys.ENTER);
-        driver.findElement(By.xpath("(.//*[normalize-space(text()) and normalize-space(.)='Valor de la reserva'])[1]/following::button[1]")).click();
-        assertEquals(closeAlertAndGetItsText(), "Insertado con éxito");
-    }//////////// Se realizara esta prueba manualmente */
 
     @AfterClass(alwaysRun = true)
     public void tearDown() throws Exception {
@@ -157,8 +128,6 @@ public class NavigationTest {
         driver.findElement(By.xpath("(.//*[normalize-space(text()) and normalize-space(.)='Contraseña'])[1]/following::button[1]")).click();
         waitElement(7, "profile");
         driver.findElement(By.linkText("Habitaciones")).click();
-       //Thread.sleep(5000);
-       //driver.manage().timeouts().implicitlyWait(5, TimeUnit.SECONDS);
         for (int second = 0;; second++) {
             if (second >= 7) fail("timeout");
             try { if (driver.findElement(By.xpath("(.//*[normalize-space(text()) and normalize-space(.)='Editar'])[6]/following::button[1]")).isDisplayed()) break; } catch (Exception e) {}
@@ -175,6 +144,7 @@ public class NavigationTest {
 
     @Test
     public void testRegistroReserva() throws Exception {
+        private String currentUrl;
         driver.get("http://165.22.249.5/#/");
         driver.findElement(By.linkText("Registro de reservas")).click();
         driver.findElement(By.id("user")).click();
@@ -184,7 +154,6 @@ public class NavigationTest {
         driver.findElement(By.id("pass")).sendKeys("123");
         driver.findElement(By.xpath("(.//*[normalize-space(text()) and normalize-space(.)='Contraseña'])[1]/following::button[1]")).click();
         waitElement(10, "profile");
-        //driver.manage().timeouts().implicitlyWait(8, TimeUnit.SECONDS);
         driver.findElement(By.linkText("Registro de reservas")).click();
         waitElement(10, "filtro-codigo");
         driver.findElement(By.id("filtro-codigo")).click();
