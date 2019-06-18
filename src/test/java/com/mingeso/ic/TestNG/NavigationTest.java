@@ -144,7 +144,7 @@ public class NavigationTest {
 
     @Test
     public void testRegistroReserva() throws Exception {
-        private String currentUrl;
+        String currentUrl;
         driver.get("http://165.22.249.5/#/");
         driver.findElement(By.linkText("Registro de reservas")).click();
         driver.findElement(By.id("user")).click();
