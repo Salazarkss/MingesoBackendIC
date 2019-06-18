@@ -2,6 +2,8 @@ package com.mingeso.ic.model;
 
 import org.junit.Test;
 
+import java.util.Date;
+
 import static org.junit.Assert.*;
 
 public class ReservaTest {
@@ -27,5 +29,19 @@ public class ReservaTest {
 
         reserva.setTipo_Reserva("Tipo");
         assertEquals("Tipo", reserva.getTipo_Reserva());
+
+        Date a = new Date();
+        reserva.setFecha_reserva(a);
+        assertEquals(a,reserva.getFecha_reserva());
+
+        reserva.setInicio(a);
+        assertEquals(a,reserva.getInicio());
+
+        reserva.setFin(a);
+        assertEquals(a,reserva.getFin());
+
+        Habitacion habitacion = new Habitacion();
+        reserva.setHabitacion(habitacion);
+        assertEquals(habitacion,reserva.getHabitacion());
     }
 }
