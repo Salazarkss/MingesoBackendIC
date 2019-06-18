@@ -17,7 +17,7 @@ import org.springframework.stereotype.Repository;
 
 @Repository
 public class UsuarioDAOImplementation extends JdbcDaoSupport implements UsuarioDAO{
-	
+
 	@Autowired
 	DataSource dataSource;
 
