@@ -11,7 +11,6 @@ import static org.testng.Assert.*;
 import org.openqa.selenium.*;
 
 
-@SuppressWarnings("Duplicates")
 public class NavigationTest {
     private WebDriver driver;
     private String baseUrl;

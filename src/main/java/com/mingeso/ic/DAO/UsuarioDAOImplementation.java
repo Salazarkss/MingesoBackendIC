@@ -15,7 +15,6 @@ import org.springframework.jdbc.core.RowMapper;
 import org.springframework.jdbc.core.support.JdbcDaoSupport;
 import org.springframework.stereotype.Repository;
 
-@SuppressWarnings("Duplicates")
 @Repository
 public class UsuarioDAOImplementation extends JdbcDaoSupport implements UsuarioDAO{
 
