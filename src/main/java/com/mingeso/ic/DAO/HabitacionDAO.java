@@ -9,5 +9,6 @@ public interface HabitacionDAO {
 	Habitacion getHabitacionById(int id);
 	List<Habitacion> getAll();
 	void updateHabitacion(Habitacion hab);
+	void updateDisponibilidad(Habitacion hab);
 	void deleteHabitacion(int id);
 }

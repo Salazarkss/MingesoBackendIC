@@ -21,6 +21,9 @@ public class Habitacion {
     @Column(name = "number")
     private String number;
 
+    @Column(name = "tipo_reserva")
+	private String tipoReserva;
+
     @ManyToOne
     @JoinColumn
     private Tipo tipo;
@@ -39,6 +42,14 @@ public class Habitacion {
 
 	public void setNumber(String number) {
 		this.number = number;
+	}
+
+	public String getTipoReserva() {
+		return tipoReserva;
+	}
+
+	public void setTipoReserva(String tipoReserva) {
+		this.tipoReserva = tipoReserva;
 	}
 
 	public Tipo getTipo() {

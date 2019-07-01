@@ -136,4 +136,11 @@ public class ReservaDAOImplementation extends JdbcDaoSupport implements ReservaD
 		getJdbcTemplate().update(query, new Object[]{id});
 	}
 
+	@Override
+	public void updateReserva(Reserva res) {
+		String query = "UPDATE reserva SET nombre = ?, codigo = ?, habitacion_id = ?, valor_final = ?, fecha_reserva = ?, inicio = ?, fin = ?, valor = ?, tipo_reserva = ? WHERE reserva_id = ?";
+        int habitacion_id = res.getHabitacion().getId();
+        getJdbcTemplate().update(query, res.getNombre(), res.getCodigo(), habitacion_id, res.getFinal_descuento(), res.getFecha_reserva(), res.getInicio(), res.getFin(), res.getValor(), res.getTipo_Reserva(), res.getId());
+	}
+
 }

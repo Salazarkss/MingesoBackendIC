@@ -11,4 +11,5 @@ public interface ReservaDAO {
 	List<Reserva> getReservasByCode(String codigo);
 	List<Reserva> getReservasByName(String nombre);
 	void deleteReserva(int id);
+	void updateReserva(Reserva res);
 }

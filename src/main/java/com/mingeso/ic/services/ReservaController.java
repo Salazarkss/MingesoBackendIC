@@ -9,13 +9,7 @@ import java.util.Locale;
 import com.mingeso.ic.DAO.ReservaDAO;
 import com.mingeso.ic.model.Reserva;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.ResponseBody;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 
 @RestController
@@ -84,6 +78,26 @@ public class ReservaController{
 			reservaDAO.deleteReserva(id);
 		}
 		catch(Exception e){
+			System.out.println(e);
+		}
+	}
+
+	@PutMapping("/reservaUpdate/{id}")
+	public void updateHabitacion(@PathVariable int id, @RequestBody Reserva actual){
+		try{
+			Reserva res = reservaDAO.getReservaById(id);
+			res.setCodigo(actual.getCodigo());
+			res.setFecha_reserva(actual.getFecha_reserva());
+			res.setFin(actual.getFin());
+			res.setFinal_descuento(actual.getFinal_descuento());
+			res.setHabitacion(actual.getHabitacion());
+			res.setInicio(actual.getInicio());
+			res.setNombre(actual.getNombre());
+			res.setTipo_Reserva(actual.getTipo_Reserva());
+			res.setValor(actual.getValor());
+			reservaDAO.updateReserva(res);
+		}
+		catch (Exception e){
 			System.out.println(e);
 		}
 	}
