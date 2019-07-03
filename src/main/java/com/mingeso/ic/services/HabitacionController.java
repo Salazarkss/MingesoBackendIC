@@ -81,8 +81,6 @@ public class HabitacionController{
 	@PutMapping("/habitacionUpdate/{id}")
 	public void updateTipoReserva(@PathVariable int id, @RequestBody Habitacion actual){
 		try{
-			//Habitacion hab = habitacionDAO.getHabitacionById(id);
-			//hab.setTipoReserva(actual.getTipoReserva());
 			habitacionDAO.updateDisponibilidad(actual);
 		}
 		catch (Exception e){

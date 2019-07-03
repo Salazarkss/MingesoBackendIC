@@ -63,6 +63,7 @@ public class HabitacionDAOImplementation extends JdbcDaoSupport implements Habit
 			hab.setId((int)row.get("habitacion_id"));
 			hab.setNumber((String)row.get("number"));
 			hab.setTipo(tipoDAO.getTipoById((int)row.get("tipo_tipo_id")));
+			hab.setTipoReserva(row.get("tipo_reserva").toString());
 			habitaciones.add(hab);
 		}
 		return habitaciones;
@@ -81,10 +82,8 @@ public class HabitacionDAOImplementation extends JdbcDaoSupport implements Habit
 		String query = "UPDATE habitacion SET tipo_reserva = ? WHERE habitacion_id = ?";
 		String tipo = hab.getTipoReserva();
 		int id = hab.getId();
-		System.out.println(hab.getTipoReserva());
 		getJdbcTemplate().update(query, hab.getTipoReserva(), id);
 		Habitacion as =getHabitacionById(id);
-		System.out.println("New: " + as.getTipoReserva());
 	}
 
 	@Override

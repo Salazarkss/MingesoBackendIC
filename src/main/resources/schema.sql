@@ -26,6 +26,7 @@ CREATE TABLE `habitacion` (
   `habitacion_id` int(11) NOT NULL AUTO_INCREMENT,
   `number` varchar(255) DEFAULT NULL,
   `tipo_tipo_id` int(11) DEFAULT NULL,
+  `tipo_reserva` varchar(255) DEFAULT NULL,
   PRIMARY KEY (`habitacion_id`),
   KEY `tipo_ibfk_1` (`tipo_tipo_id`),
   CONSTRAINT `tipo_ibfk_1` FOREIGN KEY (`tipo_tipo_id`) REFERENCES `tipo` (`tipo_id`) ON DELETE CASCADE ON UPDATE CASCADE

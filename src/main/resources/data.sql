@@ -1,11 +1,11 @@
-INSERT INTO `dbic`.`habitacion` (`number`, `tipo_tipo_id`)
+INSERT INTO `dbic`.`habitacion` (`number`, `tipo_tipo_id`, `tipo_reserva`)
 	VALUES
-	('250', 1),
-	('251', 2),
-	('252', 3),
-	('302', 2),
-	('303', 1),
-	('401', 3);
+	('250', 1, 'Disponible'),
+	('251', 2, 'Disponible'),
+	('252', 3, 'Disponible'),
+	('302', 2, 'Disponible'),
+	('303', 1, 'Disponible'),
+	('401', 3, 'Disponible');
 
 INSERT INTO `dbic`.`tipo` (`tipo`,`valor` )
 	VALUES
