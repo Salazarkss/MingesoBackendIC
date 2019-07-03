@@ -79,7 +79,9 @@ public class HabitacionDAOImplementation extends JdbcDaoSupport implements Habit
 	@Override
 	public void updateDisponibilidad(Habitacion hab){
 		String query = "UPDATE habitacion SET tipo_reserva = ? WHERE habitacion_id = ?";
-		getJdbcTemplate().update(query, hab.getTipoReserva(), hab.getId());
+		String tipo = hab.getTipoReserva();
+		int id = hab.getId();
+		getJdbcTemplate().update(query, tipo, id);
 	}
 
 	@Override

@@ -78,11 +78,11 @@ public class HabitacionController{
 		}
 	}
 
-	@PutMapping("/habitacion/{id}/{tipoReserva}")
-	public void updateTipoReserva(@PathVariable int id, @PathVariable String tipoReserva){
+	@PutMapping("/habitacionUpdate/{id}")
+	public void updateTipoReserva(@PathVariable int id, @RequestBody Habitacion actual){
 		try{
 			Habitacion hab = habitacionDAO.getHabitacionById(id);
-			hab.setTipoReserva(tipoReserva);
+			hab.setTipoReserva(actual.getTipoReserva());
 			habitacionDAO.updateDisponibilidad(hab);
 		}
 		catch (Exception e){
