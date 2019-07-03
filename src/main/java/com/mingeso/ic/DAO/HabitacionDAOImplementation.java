@@ -47,6 +47,7 @@ public class HabitacionDAOImplementation extends JdbcDaoSupport implements Habit
 				hab.setId(resultSet.getInt("habitacion_id"));
 				hab.setNumber(resultSet.getString("number"));
 				hab.setTipo(tipoDAO.getTipoById(resultSet.getInt("tipo_tipo_id")));
+				hab.setTipoReserva(resultSet.getNString("tipo_reserva"));
 				return hab;
 			}
 		});
