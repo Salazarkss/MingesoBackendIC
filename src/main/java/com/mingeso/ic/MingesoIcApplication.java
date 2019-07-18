@@ -34,7 +34,7 @@ public class MingesoIcApplication extends SpringBootServletInitializer{
         CorsConfiguration config = new CorsConfiguration();
         config.setAllowCredentials(true);
         // *** URL below needs to match the Vue client URL and port ***
-        config.setAllowedOrigins(Collections.singletonList("*")); // COLOCAR "http://165.22.249.5", ESTO ES POR MIENTRAS QUE SE HACEN PRUEBAS
+        config.setAllowedOrigins(Collections.singletonList("*"));
         config.setAllowedMethods(Collections.singletonList("*"));
         config.setAllowedHeaders(Collections.singletonList("*"));
         source.registerCorsConfiguration("/**", config);

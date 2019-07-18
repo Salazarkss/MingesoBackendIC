@@ -50,7 +50,7 @@ public class ReservaController{
 			return null;
 		}
 	}
-	//aksljdlkajslkdak
+
 	@GetMapping("/reservas/nombre/{nombre}")
 	public List<Reserva> getReservasByName(@PathVariable String nombre) {
 		try{
