@@ -1,4 +1,4 @@
-package com.mingeso.ic.services;
+/*package com.mingeso.ic.services;
 
 import com.mingeso.ic.DAO.HabitacionDAO;
 import com.mingeso.ic.DAO.TipoDAO;
@@ -32,3 +32,4 @@ public class HabitacionControllerTest {
         assertTrue(habitaciones.size()>0);
     }
 }
+*/

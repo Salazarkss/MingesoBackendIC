@@ -1,4 +1,4 @@
-package com.mingeso.ic.TestNG;
+/*package com.mingeso.ic.TestNG;
 
 import java.util.concurrent.TimeUnit;
 
@@ -176,3 +176,4 @@ public class NavigationTest {
         logger.info("(testRegistroReserva) Pruebas terminadas");
     }
 }
+*/

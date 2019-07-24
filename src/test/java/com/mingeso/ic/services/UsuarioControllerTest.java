@@ -1,4 +1,4 @@
-package com.mingeso.ic.services;
+/*package com.mingeso.ic.services;
 
 import com.mingeso.ic.DAO.UsuarioDAO;
 import com.mingeso.ic.model.Usuario;
@@ -30,3 +30,4 @@ public class UsuarioControllerTest {
         assertNotNull(usuario);
     }
 }
+*/

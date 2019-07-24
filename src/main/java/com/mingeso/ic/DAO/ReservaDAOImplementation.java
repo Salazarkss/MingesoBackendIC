@@ -67,6 +67,7 @@ public class ReservaDAOImplementation extends JdbcDaoSupport implements ReservaD
 		List<Map<String, Object>> reservaRow = getJdbcTemplate().queryForList(query);
 		
 		List<Reserva> reservas = new ArrayList<Reserva>();
+		System.out.println(reservaRow);
 		for(Map<String, Object> row:reservaRow) {
 			Reserva reserva = new Reserva();
 			reserva.setId((int)row.get("reserva_id"));

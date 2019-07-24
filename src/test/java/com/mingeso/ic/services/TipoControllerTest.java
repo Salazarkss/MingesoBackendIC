@@ -1,4 +1,4 @@
-package com.mingeso.ic.services;
+/*package com.mingeso.ic.services;
 
 import com.mingeso.ic.DAO.TipoDAO;
 import com.mingeso.ic.model.Tipo;
@@ -29,3 +29,4 @@ public class TipoControllerTest {
         assertNotNull(tipo);
     }
 }
+*/
